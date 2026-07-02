@@ -1,0 +1,62 @@
+---
+pagetitle: "Subpage template — GET REHDY"
+description: "Starter template for a GET REHDY subpage. Write plain markdown; the nav header and footer are added automatically."
+---
+
+<!--
+  SUBPAGE TEMPLATE
+  ----------------
+  This file lives in _templates/, so Quarto does NOT render it (paths starting
+  with "_" are ignored). To start a new page, copy it to the project root:
+
+      cp _templates/subpage-template.qmd about.qmd
+
+  Then `quarto render` writes docs/about.html. Everything below is ordinary
+  markdown — the GET REHDY nav header (header.png) and footer (footer.png) are
+  injected automatically on every page via _quarto.yml, and
+  assets/css/get-rehdy.css provides the look.
+
+  Wrap page content in a `.gr-section` (padding) + `.section-inner` (max-width)
+  so it lines up with the rest of the site. Use fenced divs ( ::: {.class} )
+  only when you want a styled component; plain prose needs no markup.
+-->
+
+:::::: {.gr-section}
+::::: {.section-inner}
+:::: {.section-label}
+Subpage template
+::::
+
+## A subpage written in plain markdown
+
+Everything on this page is authored in markdown. The dark nav bar at the top and
+the GET REHDY footer at the bottom are shared site chrome — you never copy them
+into a page, they come from `_includes/header.html` and `_includes/footer.html`.
+
+You can use normal markdown freely: **bold**, *italic*, [links](index.html),
+lists, and so on. When you want one of the GET REHDY components, reach for a
+fenced div:
+
+:::: {.gr-callout}
+**Tip:** the same stylesheet powers this page and the landing page, so any
+component from `index.qmd` (cards, splits, the layer-cake, flow steps, pillars)
+works here too.
+::::
+
+:::: {.card-grid .grid-2}
+::: {.card .card-teal}
+### Reuse the components
+Drop in a `.card`, `.split`, `.flow`, or `.insight` and it is styled instantly.
+:::
+
+::: {.card .card-navy}
+### Keep writing markdown
+For ordinary content, just write prose — no HTML, no boilerplate.
+:::
+::::
+
+:::: {.insight}
+Delete this template's content and start writing. The header and footer stay put.
+::::
+:::::
+::::::

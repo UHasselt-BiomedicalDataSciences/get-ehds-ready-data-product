@@ -1,0 +1,87 @@
+# =============================================================================
+# EXAMPLE _quarto.yml — MULTI-PAGE (SUBPAGES) SETUP     ·  REFERENCE ONLY
+# =============================================================================
+# Quarto never loads this file — it only reads the real _quarto.yml at the
+# project root. When you add subpages, copy the parts you need into that file.
+#
+# It shows the TWO ways to give a multi-page site its navigation. Pick ONE:
+#   • Approach A — keep the bespoke GET REHDY header (this project's default).
+#   • Approach B — use Quarto's built-in website navbar.
+# =============================================================================
+
+project:
+  type: website
+  output-dir: docs
+
+  # Every .qmd at the project root becomes a page. Keep the glob...
+  render:
+    - "*.qmd"
+  # ...or list pages explicitly to fix the build set and their order:
+  #   render:
+  #     - index.qmd
+  #     - subpage-template.qmd
+
+  resources:
+    - assets/
+
+# British English -> <html lang="en-GB"> on every page.
+lang: en-GB
+
+# -----------------------------------------------------------------------------
+# APPROACH A  (recommended — matches this project's design)
+# The navigation lives in the bespoke header include. To add a subpage, copy the
+# starter to the project root and register its link. Using subpage-template.qmd
+# as the example page:
+#   1. cp _templates/subpage-template.qmd subpage-template.qmd
+#   2. add its link to _includes/header.html, e.g.
+#        <li><a href="subpage-template.html">Subpage template</a></li>
+#   3. quarto render  ->  docs/subpage-template.html, with the same header + footer.
+# Nothing below changes. Do NOT also add a `website:` block (Approach B) or the
+# page will show two navigation bars.
+# -----------------------------------------------------------------------------
+format:
+  html:
+    minimal: true
+    css: assets/css/get-rehdy.css
+    include-in-header: _includes/head.html        # web fonts
+    include-before-body: _includes/header.html    # nav bar  (header.png)
+    include-after-body: _includes/footer.html     # footer   (footer.png)
+    toc: false
+    anchor-sections: false
+
+# -----------------------------------------------------------------------------
+# APPROACH B  (alternative — let Quarto manage the menu)
+# If you would rather use Quarto's native navbar/sidebar, uncomment the block
+# below AND remove `include-before-body` above (otherwise you get two navs).
+# The native navbar is styled by Quarto's default theme, so also remove
+# `minimal: true` and set a `theme:` — the bespoke stylesheet alone will not
+# style a Quarto navbar.
+# -----------------------------------------------------------------------------
+# website:
+#   title: "GET REHDY"
+#   navbar:
+#     background: dark
+#     logo: assets/images/logo.png
+#     left:
+#       - href: index.qmd
+#         text: Home
+#       - href: subpage-template.qmd
+#         text: Subpage template
+#     right:
+#       - icon: github
+#         href: https://github.com/UHasselt-BiomedicalDataSciences/get-ehds-ready-data-product
+#   page-footer:
+#     center: "Designed by the Flemish GET REHDY project."
+#
+# # For docs-style side navigation, use a sidebar instead of (or with) a navbar:
+# #   sidebar:
+# #     style: docked
+# #     contents:
+# #       - index.qmd
+# #       - subpage-template.qmd
+#
+# format:
+#   html:
+#     theme: cosmo                 # any Bootswatch theme, or a custom .scss
+#     css: assets/css/get-rehdy.css
+#     toc: true

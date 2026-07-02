@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+  resources:
+    - assets/
+
+lang: en-GB
+
+format:
+  html:
+    minimal: true
+    css: assets/css/get-rehdy.css
+    include-in-header: _includes/head.html
+    include-before-body: _includes/header.html
+    include-after-body:
+      - _includes/footer.html
+      - _includes/citation-tooltips.html
+    toc: false
+    anchor-sections: false

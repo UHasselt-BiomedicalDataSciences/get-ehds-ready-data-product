@@ -1,0 +1,800 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1725;
+    --navy-mid: #122236;
+    --teal: #71B29C;
+    --teal-light: #E4F0EC;
+    --teal-mid: #2E6B73;
+    --blue-accent: #1B758F;
+    --orange: #C97A4A;
+    --orange-light: #F5ECE3;
+    --purple: #7A5C9E;
+    --slate: #F4F6FA;
+    --slate-mid: #E2E8F0;
+    --text-dark: #0A1725;
+    --text-body: #2D3748;
+    --text-muted: #6B7280;
+    --border: #CBD5E0;
+    --grid-color: rgba(18, 34, 54, 0.06);
+    --font: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--text-body);
+    background: #FAFBFD;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── DATA NETWORK BACKGROUND ── */
+  .grid-bg {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%221400%22%20height%3D%22700%22%20viewBox%3D%220%200%201400%20700%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%2371B29C%22%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%22761.1%22%20y2%3D%22165.5%22%20stroke-width%3D%220.8%22%20opacity%3D%220.159%22/%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%221120.8%22%20y2%3D%2224.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.143%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.158%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%2260.5%22%20y2%3D%22164.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.076%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%2256.1%22%20y2%3D%22151.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.072%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221120.8%22%20y2%3D%2224.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.179%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221321.8%22%20y2%3D%22242.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.158%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.116%22/%3E%3Cline%20x1%3D%2260.5%22%20y1%3D%22164.3%22%20x2%3D%2256.1%22%20y2%3D%22151.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.215%22/%3E%3Cline%20x1%3D%2260.5%22%20y1%3D%22164.3%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.078%22/%3E%3Cline%20x1%3D%2256.1%22%20y1%3D%22151.2%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.074%22/%3E%3Cline%20x1%3D%22761.1%22%20y1%3D%22165.5%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%22761.1%22%20y1%3D%22165.5%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.112%22/%3E%3Cline%20x1%3D%221120.8%22%20y1%3D%2224.3%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.131%22/%3E%3Cline%20x1%3D%22969.5%22%20y1%3D%22244.6%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.135%22/%3E%3Cline%20x1%3D%22969.5%22%20y1%3D%22244.6%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.123%22/%3E%3Cline%20x1%3D%221321.8%22%20y1%3D%22242.2%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.208%22/%3E%3Cline%20x1%3D%221321.8%22%20y1%3D%22242.2%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.135%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.194%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.121%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.116%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.112%22/%3E%3Cline%20x1%3D%221343.4%22%20y1%3D%22269.8%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.136%22/%3E%3Cline%20x1%3D%22680.4%22%20y1%3D%2248.4%22%20x2%3D%22761.1%22%20y2%3D%22165.5%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22137.8%22%20y1%3D%22281.8%22%20x2%3D%2260.5%22%20y2%3D%22164.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221393.2%22%20y1%3D%22454.9%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22954.4%22%20y1%3D%22375.9%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22371.3%22%20y1%3D%22548.8%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22473.3%22%20y1%3D%22411.8%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221021.9%22%20y1%3D%22140.8%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221205.1%22%20y1%3D%228.0%22%20x2%3D%221233.4%22%20y2%3D%2277.4%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22220.4%22%20y1%3D%22672.5%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221385.3%22%20y1%3D%22448.0%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22344.7%22%20y1%3D%22416.2%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22153.5%22%20y1%3D%22439.2%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22958.5%22%20y1%3D%22590.0%22%20x2%3D%221117.7%22%20y2%3D%22501.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3C/g%3E%3Cg%20fill%3D%22%2371B29C%22%3E%3Ccircle%20cx%3D%22889.6%22%20cy%3D%2236.5%22%20r%3D%224.2%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22323.6%22%20cy%3D%22506.1%22%20r%3D%225.2%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221233.4%22%20cy%3D%2277.4%22%20r%3D%224.6%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%2260.5%22%20cy%3D%22164.3%22%20r%3D%224.8%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%2256.1%22%20cy%3D%22151.2%22%20r%3D%225.1%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22761.1%22%20cy%3D%22165.5%22%20r%3D%225.0%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221120.8%22%20cy%3D%2224.3%22%20r%3D%225.5%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22969.5%22%20cy%3D%22244.6%22%20r%3D%223.9%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221321.8%22%20cy%3D%22242.2%22%20r%3D%223.7%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22151.5%22%20cy%3D%22579.3%22%20r%3D%225.0%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221117.7%22%20cy%3D%22501.6%22%20r%3D%224.8%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221343.4%22%20cy%3D%22269.8%22%20r%3D%224.9%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221148.0%22%20cy%3D%22428.2%22%20r%3D%225.7%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22805.2%22%20cy%3D%22485.0%22%20r%3D%223.6%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22319.1%22%20cy%3D%22202.6%22%20r%3D%221.1%22%20opacity%3D%220.254%22/%3E%3Ccircle%20cx%3D%22325.9%22%20cy%3D%2270.7%22%20r%3D%221.4%22%20opacity%3D%220.148%22/%3E%3Ccircle%20cx%3D%22890.0%22%20cy%3D%22255.4%22%20r%3D%221.6%22%20opacity%3D%220.171%22/%3E%3Ccircle%20cx%3D%22293.3%22%20cy%3D%22186.9%22%20r%3D%222.5%22%20opacity%3D%220.158%22/%3E%3Ccircle%20cx%3D%22907.2%22%20cy%3D%22426.4%22%20r%3D%221.3%22%20opacity%3D%220.182%22/%3E%3Ccircle%20cx%3D%221020.8%22%20cy%3D%22114.4%22%20r%3D%221.6%22%20opacity%3D%220.244%22/%3E%3Ccircle%20cx%3D%221385.3%22%20cy%3D%22448.0%22%20r%3D%221.9%22%20opacity%3D%220.274%22/%3E%3Ccircle%20cx%3D%22958.5%22%20cy%3D%22590.0%22%20r%3D%222.2%22%20opacity%3D%220.211%22/%3E%3Ccircle%20cx%3D%22320.7%22%20cy%3D%2222.5%22%20r%3D%221.5%22%20opacity%3D%220.165%22/%3E%3Ccircle%20cx%3D%22374.8%22%20cy%3D%22147.7%22%20r%3D%222.5%22%20opacity%3D%220.283%22/%3E%3Ccircle%20cx%3D%221226.9%22%20cy%3D%22220.3%22%20r%3D%222.0%22%20opacity%3D%220.129%22/%3E%3Ccircle%20cx%3D%22553.9%22%20cy%3D%22640.2%22%20r%3D%221.7%22%20opacity%3D%220.234%22/%3E%3Ccircle%20cx%3D%22370.8%22%20cy%3D%22172.6%22%20r%3D%221.9%22%20opacity%3D%220.269%22/%3E%3Ccircle%20cx%3D%22367.8%22%20cy%3D%22409.2%22%20r%3D%222.4%22%20opacity%3D%220.128%22/%3E%3Ccircle%20cx%3D%22559.2%22%20cy%3D%22153.5%22%20r%3D%222.6%22%20opacity%3D%220.180%22/%3E%3Ccircle%20cx%3D%22713.3%22%20cy%3D%2263.6%22%20r%3D%221.1%22%20opacity%3D%220.144%22/%3E%3Ccircle%20cx%3D%22153.5%22%20cy%3D%22439.2%22%20r%3D%222.3%22%20opacity%3D%220.296%22/%3E%3Ccircle%20cx%3D%22591.0%22%20cy%3D%2244.5%22%20r%3D%221.6%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%221394.6%22%20cy%3D%22370.4%22%20r%3D%222.6%22%20opacity%3D%220.200%22/%3E%3Ccircle%20cx%3D%221205.1%22%20cy%3D%228.0%22%20r%3D%222.2%22%20opacity%3D%220.247%22/%3E%3Ccircle%20cx%3D%22954.4%22%20cy%3D%22375.9%22%20r%3D%221.4%22%20opacity%3D%220.221%22/%3E%3Ccircle%20cx%3D%22897.3%22%20cy%3D%2278.1%22%20r%3D%221.7%22%20opacity%3D%220.140%22/%3E%3Ccircle%20cx%3D%22635.2%22%20cy%3D%22667.7%22%20r%3D%222.4%22%20opacity%3D%220.290%22/%3E%3Ccircle%20cx%3D%22368.7%22%20cy%3D%22350.4%22%20r%3D%221.3%22%20opacity%3D%220.244%22/%3E%3Ccircle%20cx%3D%221277.7%22%20cy%3D%22609.4%22%20r%3D%221.5%22%20opacity%3D%220.147%22/%3E%3Ccircle%20cx%3D%22894.5%22%20cy%3D%22426.3%22%20r%3D%221.2%22%20opacity%3D%220.126%22/%3E%3Ccircle%20cx%3D%221067.5%22%20cy%3D%22377.6%22%20r%3D%222.2%22%20opacity%3D%220.186%22/%3E%3Ccircle%20cx%3D%22742.5%22%20cy%3D%220.4%22%20r%3D%221.5%22%20opacity%3D%220.219%22/%3E%3Ccircle%20cx%3D%2227.3%22%20cy%3D%22650.4%22%20r%3D%222.4%22%20opacity%3D%220.197%22/%3E%3Ccircle%20cx%3D%221164.3%22%20cy%3D%22215.3%22%20r%3D%221.1%22%20opacity%3D%220.128%22/%3E%3Ccircle%20cx%3D%221229.2%22%20cy%3D%22662.9%22%20r%3D%221.1%22%20opacity%3D%220.186%22/%3E%3Ccircle%20cx%3D%22680.4%22%20cy%3D%2248.4%22%20r%3D%222.2%22%20opacity%3D%220.288%22/%3E%3Ccircle%20cx%3D%221072.2%22%20cy%3D%2289.9%22%20r%3D%221.8%22%20opacity%3D%220.295%22/%3E%3Ccircle%20cx%3D%22769.7%22%20cy%3D%22185.5%22%20r%3D%222.4%22%20opacity%3D%220.127%22/%3E%3Ccircle%20cx%3D%22592.4%22%20cy%3D%22148.3%22%20r%3D%221.9%22%20opacity%3D%220.184%22/%3E%3Ccircle%20cx%3D%221021.9%22%20cy%3D%22140.8%22%20r%3D%221.5%22%20opacity%3D%220.243%22/%3E%3Ccircle%20cx%3D%221393.2%22%20cy%3D%22454.9%22%20r%3D%221.7%22%20opacity%3D%220.240%22/%3E%3Ccircle%20cx%3D%22724.6%22%20cy%3D%2284.7%22%20r%3D%221.4%22%20opacity%3D%220.184%22/%3E%3Ccircle%20cx%3D%22473.3%22%20cy%3D%22411.8%22%20r%3D%221.4%22%20opacity%3D%220.221%22/%3E%3Ccircle%20cx%3D%22308.3%22%20cy%3D%2249.7%22%20r%3D%222.0%22%20opacity%3D%220.277%22/%3E%3Ccircle%20cx%3D%22320.5%22%20cy%3D%22633.8%22%20r%3D%222.4%22%20opacity%3D%220.295%22/%3E%3Ccircle%20cx%3D%2299.2%22%20cy%3D%22166.6%22%20r%3D%222.1%22%20opacity%3D%220.255%22/%3E%3Ccircle%20cx%3D%22299.9%22%20cy%3D%2292.6%22%20r%3D%222.5%22%20opacity%3D%220.287%22/%3E%3Ccircle%20cx%3D%22799.5%22%20cy%3D%22330.9%22%20r%3D%222.3%22%20opacity%3D%220.163%22/%3E%3Ccircle%20cx%3D%221130.5%22%20cy%3D%22133.3%22%20r%3D%221.2%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%22603.5%22%20cy%3D%22296.5%22%20r%3D%221.7%22%20opacity%3D%220.264%22/%3E%3Ccircle%20cx%3D%221020.7%22%20cy%3D%22471.4%22%20r%3D%222.6%22%20opacity%3D%220.152%22/%3E%3Ccircle%20cx%3D%22137.8%22%20cy%3D%22281.8%22%20r%3D%221.5%22%20opacity%3D%220.194%22/%3E%3Ccircle%20cx%3D%221206.3%22%20cy%3D%22174.1%22%20r%3D%221.3%22%20opacity%3D%220.152%22/%3E%3Ccircle%20cx%3D%22628.1%22%20cy%3D%22295.3%22%20r%3D%221.4%22%20opacity%3D%220.286%22/%3E%3Ccircle%20cx%3D%22349.7%22%20cy%3D%22646.3%22%20r%3D%221.7%22%20opacity%3D%220.261%22/%3E%3Ccircle%20cx%3D%221205.9%22%20cy%3D%22385.2%22%20r%3D%221.1%22%20opacity%3D%220.194%22/%3E%3Ccircle%20cx%3D%221399.0%22%20cy%3D%22585.2%22%20r%3D%222.6%22%20opacity%3D%220.241%22/%3E%3Ccircle%20cx%3D%221296.9%22%20cy%3D%22594.1%22%20r%3D%221.3%22%20opacity%3D%220.252%22/%3E%3Ccircle%20cx%3D%22679.9%22%20cy%3D%22149.6%22%20r%3D%221.6%22%20opacity%3D%220.165%22/%3E%3Ccircle%20cx%3D%2282.1%22%20cy%3D%22265.3%22%20r%3D%222.6%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%22371.3%22%20cy%3D%22548.8%22%20r%3D%221.7%22%20opacity%3D%220.246%22/%3E%3Ccircle%20cx%3D%22592.2%22%20cy%3D%22670.1%22%20r%3D%222.6%22%20opacity%3D%220.189%22/%3E%3Ccircle%20cx%3D%22778.1%22%20cy%3D%22502.9%22%20r%3D%221.2%22%20opacity%3D%220.127%22/%3E%3Ccircle%20cx%3D%22415.4%22%20cy%3D%22678.1%22%20r%3D%221.9%22%20opacity%3D%220.205%22/%3E%3Ccircle%20cx%3D%22759.1%22%20cy%3D%22523.6%22%20r%3D%221.1%22%20opacity%3D%220.156%22/%3E%3Ccircle%20cx%3D%22817.8%22%20cy%3D%22352.0%22%20r%3D%222.4%22%20opacity%3D%220.285%22/%3E%3Ccircle%20cx%3D%22220.4%22%20cy%3D%22672.5%22%20r%3D%221.1%22%20opacity%3D%220.183%22/%3E%3Ccircle%20cx%3D%22260.2%22%20cy%3D%22416.5%22%20r%3D%222.1%22%20opacity%3D%220.268%22/%3E%3Ccircle%20cx%3D%22329.3%22%20cy%3D%2283.9%22%20r%3D%222.4%22%20opacity%3D%220.277%22/%3E%3Ccircle%20cx%3D%22344.7%22%20cy%3D%22416.2%22%20r%3D%222.0%22%20opacity%3D%220.160%22/%3E%3Ccircle%20cx%3D%22586.9%22%20cy%3D%22408.6%22%20r%3D%221.8%22%20opacity%3D%220.239%22/%3E%3Ccircle%20cx%3D%221308.6%22%20cy%3D%22143.0%22%20r%3D%222.1%22%20opacity%3D%220.192%22/%3E%3Ccircle%20cx%3D%22334.2%22%20cy%3D%22277.1%22%20r%3D%222.1%22%20opacity%3D%220.170%22/%3E%3Ccircle%20cx%3D%22420.0%22%20cy%3D%22221.3%22%20r%3D%222.2%22%20opacity%3D%220.132%22/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .section-dark.grid-bg {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%221400%22%20height%3D%22700%22%20viewBox%3D%220%200%201400%20700%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%2371B29C%22%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%22761.1%22%20y2%3D%22165.5%22%20stroke-width%3D%220.8%22%20opacity%3D%220.159%22/%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%22889.6%22%20y1%3D%2236.5%22%20x2%3D%221120.8%22%20y2%3D%2224.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.143%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.158%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%2260.5%22%20y2%3D%22164.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.076%22/%3E%3Cline%20x1%3D%22323.6%22%20y1%3D%22506.1%22%20x2%3D%2256.1%22%20y2%3D%22151.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.072%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221120.8%22%20y2%3D%2224.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.179%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221321.8%22%20y2%3D%22242.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.158%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%221233.4%22%20y1%3D%2277.4%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.116%22/%3E%3Cline%20x1%3D%2260.5%22%20y1%3D%22164.3%22%20x2%3D%2256.1%22%20y2%3D%22151.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.215%22/%3E%3Cline%20x1%3D%2260.5%22%20y1%3D%22164.3%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.078%22/%3E%3Cline%20x1%3D%2256.1%22%20y1%3D%22151.2%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.8%22%20opacity%3D%220.074%22/%3E%3Cline%20x1%3D%22761.1%22%20y1%3D%22165.5%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.146%22/%3E%3Cline%20x1%3D%22761.1%22%20y1%3D%22165.5%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.112%22/%3E%3Cline%20x1%3D%221120.8%22%20y1%3D%2224.3%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.131%22/%3E%3Cline%20x1%3D%22969.5%22%20y1%3D%22244.6%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.135%22/%3E%3Cline%20x1%3D%22969.5%22%20y1%3D%22244.6%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.123%22/%3E%3Cline%20x1%3D%221321.8%22%20y1%3D%22242.2%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.208%22/%3E%3Cline%20x1%3D%221321.8%22%20y1%3D%22242.2%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.135%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.194%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.8%22%20opacity%3D%220.121%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%22805.2%22%20y2%3D%22485.0%22%20stroke-width%3D%220.8%22%20opacity%3D%220.116%22/%3E%3Cline%20x1%3D%221117.7%22%20y1%3D%22501.6%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.8%22%20opacity%3D%220.112%22/%3E%3Cline%20x1%3D%221343.4%22%20y1%3D%22269.8%22%20x2%3D%221148.0%22%20y2%3D%22428.2%22%20stroke-width%3D%220.8%22%20opacity%3D%220.136%22/%3E%3Cline%20x1%3D%22680.4%22%20y1%3D%2248.4%22%20x2%3D%22761.1%22%20y2%3D%22165.5%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22137.8%22%20y1%3D%22281.8%22%20x2%3D%2260.5%22%20y2%3D%22164.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221393.2%22%20y1%3D%22454.9%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22954.4%22%20y1%3D%22375.9%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22371.3%22%20y1%3D%22548.8%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22473.3%22%20y1%3D%22411.8%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221021.9%22%20y1%3D%22140.8%22%20x2%3D%22969.5%22%20y2%3D%22244.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221205.1%22%20y1%3D%228.0%22%20x2%3D%221233.4%22%20y2%3D%2277.4%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22220.4%22%20y1%3D%22672.5%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%221385.3%22%20y1%3D%22448.0%22%20x2%3D%221343.4%22%20y2%3D%22269.8%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22344.7%22%20y1%3D%22416.2%22%20x2%3D%22323.6%22%20y2%3D%22506.1%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22153.5%22%20y1%3D%22439.2%22%20x2%3D%22151.5%22%20y2%3D%22579.3%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3Cline%20x1%3D%22958.5%22%20y1%3D%22590.0%22%20x2%3D%221117.7%22%20y2%3D%22501.6%22%20stroke-width%3D%220.6%22%20opacity%3D%220.10%22/%3E%3C/g%3E%3Cg%20fill%3D%22%2371B29C%22%3E%3Ccircle%20cx%3D%22889.6%22%20cy%3D%2236.5%22%20r%3D%224.2%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22323.6%22%20cy%3D%22506.1%22%20r%3D%225.2%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221233.4%22%20cy%3D%2277.4%22%20r%3D%224.6%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%2260.5%22%20cy%3D%22164.3%22%20r%3D%224.8%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%2256.1%22%20cy%3D%22151.2%22%20r%3D%225.1%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22761.1%22%20cy%3D%22165.5%22%20r%3D%225.0%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221120.8%22%20cy%3D%2224.3%22%20r%3D%225.5%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22969.5%22%20cy%3D%22244.6%22%20r%3D%223.9%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221321.8%22%20cy%3D%22242.2%22%20r%3D%223.7%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22151.5%22%20cy%3D%22579.3%22%20r%3D%225.0%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221117.7%22%20cy%3D%22501.6%22%20r%3D%224.8%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221343.4%22%20cy%3D%22269.8%22%20r%3D%224.9%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%221148.0%22%20cy%3D%22428.2%22%20r%3D%225.7%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22805.2%22%20cy%3D%22485.0%22%20r%3D%223.6%22%20opacity%3D%220.450%22/%3E%3Ccircle%20cx%3D%22319.1%22%20cy%3D%22202.6%22%20r%3D%221.1%22%20opacity%3D%220.254%22/%3E%3Ccircle%20cx%3D%22325.9%22%20cy%3D%2270.7%22%20r%3D%221.4%22%20opacity%3D%220.148%22/%3E%3Ccircle%20cx%3D%22890.0%22%20cy%3D%22255.4%22%20r%3D%221.6%22%20opacity%3D%220.171%22/%3E%3Ccircle%20cx%3D%22293.3%22%20cy%3D%22186.9%22%20r%3D%222.5%22%20opacity%3D%220.158%22/%3E%3Ccircle%20cx%3D%22907.2%22%20cy%3D%22426.4%22%20r%3D%221.3%22%20opacity%3D%220.182%22/%3E%3Ccircle%20cx%3D%221020.8%22%20cy%3D%22114.4%22%20r%3D%221.6%22%20opacity%3D%220.244%22/%3E%3Ccircle%20cx%3D%221385.3%22%20cy%3D%22448.0%22%20r%3D%221.9%22%20opacity%3D%220.274%22/%3E%3Ccircle%20cx%3D%22958.5%22%20cy%3D%22590.0%22%20r%3D%222.2%22%20opacity%3D%220.211%22/%3E%3Ccircle%20cx%3D%22320.7%22%20cy%3D%2222.5%22%20r%3D%221.5%22%20opacity%3D%220.165%22/%3E%3Ccircle%20cx%3D%22374.8%22%20cy%3D%22147.7%22%20r%3D%222.5%22%20opacity%3D%220.283%22/%3E%3Ccircle%20cx%3D%221226.9%22%20cy%3D%22220.3%22%20r%3D%222.0%22%20opacity%3D%220.129%22/%3E%3Ccircle%20cx%3D%22553.9%22%20cy%3D%22640.2%22%20r%3D%221.7%22%20opacity%3D%220.234%22/%3E%3Ccircle%20cx%3D%22370.8%22%20cy%3D%22172.6%22%20r%3D%221.9%22%20opacity%3D%220.269%22/%3E%3Ccircle%20cx%3D%22367.8%22%20cy%3D%22409.2%22%20r%3D%222.4%22%20opacity%3D%220.128%22/%3E%3Ccircle%20cx%3D%22559.2%22%20cy%3D%22153.5%22%20r%3D%222.6%22%20opacity%3D%220.180%22/%3E%3Ccircle%20cx%3D%22713.3%22%20cy%3D%2263.6%22%20r%3D%221.1%22%20opacity%3D%220.144%22/%3E%3Ccircle%20cx%3D%22153.5%22%20cy%3D%22439.2%22%20r%3D%222.3%22%20opacity%3D%220.296%22/%3E%3Ccircle%20cx%3D%22591.0%22%20cy%3D%2244.5%22%20r%3D%221.6%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%221394.6%22%20cy%3D%22370.4%22%20r%3D%222.6%22%20opacity%3D%220.200%22/%3E%3Ccircle%20cx%3D%221205.1%22%20cy%3D%228.0%22%20r%3D%222.2%22%20opacity%3D%220.247%22/%3E%3Ccircle%20cx%3D%22954.4%22%20cy%3D%22375.9%22%20r%3D%221.4%22%20opacity%3D%220.221%22/%3E%3Ccircle%20cx%3D%22897.3%22%20cy%3D%2278.1%22%20r%3D%221.7%22%20opacity%3D%220.140%22/%3E%3Ccircle%20cx%3D%22635.2%22%20cy%3D%22667.7%22%20r%3D%222.4%22%20opacity%3D%220.290%22/%3E%3Ccircle%20cx%3D%22368.7%22%20cy%3D%22350.4%22%20r%3D%221.3%22%20opacity%3D%220.244%22/%3E%3Ccircle%20cx%3D%221277.7%22%20cy%3D%22609.4%22%20r%3D%221.5%22%20opacity%3D%220.147%22/%3E%3Ccircle%20cx%3D%22894.5%22%20cy%3D%22426.3%22%20r%3D%221.2%22%20opacity%3D%220.126%22/%3E%3Ccircle%20cx%3D%221067.5%22%20cy%3D%22377.6%22%20r%3D%222.2%22%20opacity%3D%220.186%22/%3E%3Ccircle%20cx%3D%22742.5%22%20cy%3D%220.4%22%20r%3D%221.5%22%20opacity%3D%220.219%22/%3E%3Ccircle%20cx%3D%2227.3%22%20cy%3D%22650.4%22%20r%3D%222.4%22%20opacity%3D%220.197%22/%3E%3Ccircle%20cx%3D%221164.3%22%20cy%3D%22215.3%22%20r%3D%221.1%22%20opacity%3D%220.128%22/%3E%3Ccircle%20cx%3D%221229.2%22%20cy%3D%22662.9%22%20r%3D%221.1%22%20opacity%3D%220.186%22/%3E%3Ccircle%20cx%3D%22680.4%22%20cy%3D%2248.4%22%20r%3D%222.2%22%20opacity%3D%220.288%22/%3E%3Ccircle%20cx%3D%221072.2%22%20cy%3D%2289.9%22%20r%3D%221.8%22%20opacity%3D%220.295%22/%3E%3Ccircle%20cx%3D%22769.7%22%20cy%3D%22185.5%22%20r%3D%222.4%22%20opacity%3D%220.127%22/%3E%3Ccircle%20cx%3D%22592.4%22%20cy%3D%22148.3%22%20r%3D%221.9%22%20opacity%3D%220.184%22/%3E%3Ccircle%20cx%3D%221021.9%22%20cy%3D%22140.8%22%20r%3D%221.5%22%20opacity%3D%220.243%22/%3E%3Ccircle%20cx%3D%221393.2%22%20cy%3D%22454.9%22%20r%3D%221.7%22%20opacity%3D%220.240%22/%3E%3Ccircle%20cx%3D%22724.6%22%20cy%3D%2284.7%22%20r%3D%221.4%22%20opacity%3D%220.184%22/%3E%3Ccircle%20cx%3D%22473.3%22%20cy%3D%22411.8%22%20r%3D%221.4%22%20opacity%3D%220.221%22/%3E%3Ccircle%20cx%3D%22308.3%22%20cy%3D%2249.7%22%20r%3D%222.0%22%20opacity%3D%220.277%22/%3E%3Ccircle%20cx%3D%22320.5%22%20cy%3D%22633.8%22%20r%3D%222.4%22%20opacity%3D%220.295%22/%3E%3Ccircle%20cx%3D%2299.2%22%20cy%3D%22166.6%22%20r%3D%222.1%22%20opacity%3D%220.255%22/%3E%3Ccircle%20cx%3D%22299.9%22%20cy%3D%2292.6%22%20r%3D%222.5%22%20opacity%3D%220.287%22/%3E%3Ccircle%20cx%3D%22799.5%22%20cy%3D%22330.9%22%20r%3D%222.3%22%20opacity%3D%220.163%22/%3E%3Ccircle%20cx%3D%221130.5%22%20cy%3D%22133.3%22%20r%3D%221.2%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%22603.5%22%20cy%3D%22296.5%22%20r%3D%221.7%22%20opacity%3D%220.264%22/%3E%3Ccircle%20cx%3D%221020.7%22%20cy%3D%22471.4%22%20r%3D%222.6%22%20opacity%3D%220.152%22/%3E%3Ccircle%20cx%3D%22137.8%22%20cy%3D%22281.8%22%20r%3D%221.5%22%20opacity%3D%220.194%22/%3E%3Ccircle%20cx%3D%221206.3%22%20cy%3D%22174.1%22%20r%3D%221.3%22%20opacity%3D%220.152%22/%3E%3Ccircle%20cx%3D%22628.1%22%20cy%3D%22295.3%22%20r%3D%221.4%22%20opacity%3D%220.286%22/%3E%3Ccircle%20cx%3D%22349.7%22%20cy%3D%22646.3%22%20r%3D%221.7%22%20opacity%3D%220.261%22/%3E%3Ccircle%20cx%3D%221205.9%22%20cy%3D%22385.2%22%20r%3D%221.1%22%20opacity%3D%220.194%22/%3E%3Ccircle%20cx%3D%221399.0%22%20cy%3D%22585.2%22%20r%3D%222.6%22%20opacity%3D%220.241%22/%3E%3Ccircle%20cx%3D%221296.9%22%20cy%3D%22594.1%22%20r%3D%221.3%22%20opacity%3D%220.252%22/%3E%3Ccircle%20cx%3D%22679.9%22%20cy%3D%22149.6%22%20r%3D%221.6%22%20opacity%3D%220.165%22/%3E%3Ccircle%20cx%3D%2282.1%22%20cy%3D%22265.3%22%20r%3D%222.6%22%20opacity%3D%220.149%22/%3E%3Ccircle%20cx%3D%22371.3%22%20cy%3D%22548.8%22%20r%3D%221.7%22%20opacity%3D%220.246%22/%3E%3Ccircle%20cx%3D%22592.2%22%20cy%3D%22670.1%22%20r%3D%222.6%22%20opacity%3D%220.189%22/%3E%3Ccircle%20cx%3D%22778.1%22%20cy%3D%22502.9%22%20r%3D%221.2%22%20opacity%3D%220.127%22/%3E%3Ccircle%20cx%3D%22415.4%22%20cy%3D%22678.1%22%20r%3D%221.9%22%20opacity%3D%220.205%22/%3E%3Ccircle%20cx%3D%22759.1%22%20cy%3D%22523.6%22%20r%3D%221.1%22%20opacity%3D%220.156%22/%3E%3Ccircle%20cx%3D%22817.8%22%20cy%3D%22352.0%22%20r%3D%222.4%22%20opacity%3D%220.285%22/%3E%3Ccircle%20cx%3D%22220.4%22%20cy%3D%22672.5%22%20r%3D%221.1%22%20opacity%3D%220.183%22/%3E%3Ccircle%20cx%3D%22260.2%22%20cy%3D%22416.5%22%20r%3D%222.1%22%20opacity%3D%220.268%22/%3E%3Ccircle%20cx%3D%22329.3%22%20cy%3D%2283.9%22%20r%3D%222.4%22%20opacity%3D%220.277%22/%3E%3Ccircle%20cx%3D%22344.7%22%20cy%3D%22416.2%22%20r%3D%222.0%22%20opacity%3D%220.160%22/%3E%3Ccircle%20cx%3D%22586.9%22%20cy%3D%22408.6%22%20r%3D%221.8%22%20opacity%3D%220.239%22/%3E%3Ccircle%20cx%3D%221308.6%22%20cy%3D%22143.0%22%20r%3D%222.1%22%20opacity%3D%220.192%22/%3E%3Ccircle%20cx%3D%22334.2%22%20cy%3D%22277.1%22%20r%3D%222.1%22%20opacity%3D%220.170%22/%3E%3Ccircle%20cx%3D%22420.0%22%20cy%3D%22221.3%22%20r%3D%222.2%22%20opacity%3D%220.132%22/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: screen;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 23, 37, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(113, 178, 156, 0.3);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  .nav-brand img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(113,178,156,0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 100% at 100% 0%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse 70% 100% at 100% 0%, #000 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(113,178,156,0.12) 0%, transparent 70%);
+  }
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--teal);
+  }
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--teal);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(113,178,156,0.18);
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hero-meta-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .hero-meta-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── SECTION WRAPPER ──
+     The outer padding lives on `.gr-section` (see the markdown adaptation layer
+     at the end of this file); `.section` is reserved by Pandoc and unused here. */
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-alt { background: var(--slate); }
+  .section-dark {
+    background: var(--navy-mid);
+    color: #fff;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .section-dark h2 { color: #fff; }
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin-bottom: 3rem;
+    line-height: 1.75;
+  }
+  .section-dark .section-intro { color: rgba(255,255,255,0.6); }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── CALLOUT ──
+     Named .gr-callout (not .callout) because `.callout` is a reserved Quarto
+     class that would be intercepted and re-rendered as a Quarto callout block. */
+  .gr-callout {
+    background: var(--navy);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+  .gr-callout p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .gr-callout strong {
+    color: var(--teal);
+    font-style: normal;
+  }
+
+  /* ── PROBLEM / SOLUTION SPLIT ── */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+  .split-panel {
+    padding: 2rem;
+    background: #fff;
+  }
+  .split-panel:first-child {
+    background: #F8F9FC;
+    border-right: 1px solid var(--border);
+  }
+  .split-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .split-panel:first-child .split-header { color: #C97A4A; }
+  .split-panel:last-child .split-header { color: var(--teal-mid); }
+  .split-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .split-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .split-panel:first-child .split-icon {
+    background: #FDF0E6;
+    color: var(--orange);
+  }
+  .split-panel:last-child .split-icon {
+    background: var(--teal-light);
+    color: var(--teal-mid);
+  }
+
+  /* ── LAYER CAKE ── */
+  .layer-cake {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .layer {
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: default;
+    transition: transform 0.15s;
+    position: relative;
+  }
+  .layer:hover { transform: translateX(4px); }
+  .layer-legal {
+    background: var(--navy);
+    color: #fff;
+  }
+  .layer-semantic {
+    background: var(--teal-mid);
+    color: #fff;
+  }
+  .layer-syntactic {
+    background: var(--blue-accent);
+    color: #fff;
+  }
+  .layer-semantic-syntactic {
+    background: var(--teal-mid);
+    color: #fff;
+  }
+  .layer-technical {
+    background: var(--blue-accent);
+    color: #fff;
+  }
+  .layer-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    min-width: 90px;
+  }
+  .layer-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: #fff;
+  }
+  .layer-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.5;
+  }
+  .layer-badge {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .badge-covered {
+    background: rgba(255,255,255,0.92);
+    color: var(--navy);
+  }
+  .badge-gap {
+    background: rgba(255,255,255,0.92);
+    color: #9A4A18;
+  }
+  .badge-omop {
+    background: rgba(255,255,255,0.92);
+    color: var(--teal-mid);
+  }
+  .badge-data-product {
+    background: rgba(255,255,255,0.92);
+    color: var(--blue-accent);
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .card-navy::before { background: var(--navy); }
+  .card-teal::before { background: var(--teal); }
+  .card-orange::before { background: var(--orange); }
+  .card-blue::before { background: #378ADD; }
+  .card-purple::before { background: var(--purple); }
+  .card-number {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── CANVAS GRID ── */
+  .canvas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .canvas-block {
+    background: #fff;
+    padding: 1.25rem;
+  }
+  .canvas-block-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .canvas-block h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+  .canvas-block p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .canvas-block-accent {
+    background: linear-gradient(135deg, var(--navy) 0%, #122236 100%);
+  }
+  .canvas-block-accent .canvas-block-label,
+  .canvas-block-accent h4,
+  .canvas-block-accent p { color: rgba(255,255,255,0.7); }
+  .canvas-block-accent h4 { color: var(--teal); font-size: 16px; font-weight: 700; }
+
+  /* ── FLOW ── */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 2rem 0;
+    overflow-x: auto;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 120px;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 18px;
+    color: var(--teal);
+    background: #fff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--teal);
+  }
+  .flow-step:first-child { border-radius: 8px 0 0 8px; }
+  .flow-step:last-child { border-radius: 0 8px 8px 0; }
+  .flow-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+  .flow-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+  .flow-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: #0F1724;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(113, 178, 156, 0.2);
+  }
+  .code-block pre {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #A8B9CC;
+    white-space: pre;
+  }
+  .code-key { color: #9CC9B6; }
+  .code-val { color: #FAC775; }
+  .code-comment { color: #4A5568; }
+  .code-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(113, 178, 156, 0.7);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── OMOP PILLARS ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+  .pillar {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .pillar-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(113, 178, 156, 0.2);
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pillar-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pillar h3 { font-size: 15px; color: var(--text-dark); margin-bottom: 0.5rem; }
+  .pillar p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    background: rgba(113, 178, 156, 0.08);
+    border: 1px solid rgba(113, 178, 156, 0.25);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+  .insight strong { color: var(--teal-mid); }
+
+  /* ── QUOTE ── */
+  .big-quote {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .big-quote blockquote {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    quotes: none;
+  }
+  .big-quote cite {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    font-style: normal;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(113, 178, 156, 0.2);
+  }
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-logo {
+    height: 36px;
+    width: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── UTILITIES ── */
+  .mono { font-family: var(--mono); }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .tag-teal { background: var(--teal-light); color: var(--teal-mid); }
+  .tag-navy { background: rgba(10, 23, 37, 0.08); color: var(--navy); }
+  .tag-orange { background: var(--orange-light); color: #7A4A28; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .split { grid-template-columns: 1fr; }
+    .split-panel:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .canvas-grid { grid-template-columns: 1fr 1fr; }
+    .pillars { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .flow { flex-direction: column; }
+    .flow-step { border-radius: 8px; }
+    .flow-step::after { display: none; }
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     MARKDOWN ADAPTATION LAYER
+     These rules let the Quarto-markdown source (index.qmd, fenced divs) render
+     as fully styled HTML. They target the DOM Pandoc produces from the
+     `::: {.class}` fenced divs and `[text]{.class}` spans used in the pages.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Section wrapper. `.section` is a reserved Pandoc class (it becomes a
+     <section> tag and loses the class), so markdown sections use `.gr-section`. */
+  .gr-section { padding: 5rem 2rem; }
+
+  /* Inline reference/citation links in body copy should read as part of the
+     sentence, not stand out in the browser's default link color. Rules with
+     higher specificity or later in the cascade (e.g. .cite-tooltip a) still
+     override this for links that are meant to be highlighted. */
+  .gr-section a { color: inherit; text-decoration: underline; }
+
+  /* Pandoc emits headings inside components; strip their auto-anchor artefacts. */
+  .section-inner h1, .section-inner h2, .section-inner h3, .section-inner h4 { scroll-margin-top: 70px; }
+
+  /* Muted / lead paragraphs (were inline-styled <p> in the reference). */
+  .p-lead,
+  .p-muted        { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+  .p-note         { font-size: 14px; color: var(--text-muted); margin-bottom: 1rem; }
+  .p-italic       { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-style: italic; }
+  .p-muted-light  { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1.5rem; }
+  .p-italic-light { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; font-style: italic; }
+
+  /* Spacing utilities (replace one-off inline styles). */
+  .mt-lg { margin-top: 3rem; }
+  .mb-sm { margin-bottom: 1rem; }
+  .mb-lg { margin-bottom: 3rem; }
+
+  /* Two-column card grid (reference used inline grid-template-columns). */
+  .card-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* Inline mono accents inside cards / canvas. */
+  .accent-teal      { color: rgba(113, 178, 156, 0.9); }
+  .canvas-arch      { font-size: 11px; color: var(--text-muted); }
+  .canvas-accent-id { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .card-inline-mono { font-size: 12px; }
+
+  /* SwitchBox diagram (reference used inline styles on flex nodes). */
+  .sb-flow { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+  .sb-node {
+    flex: 1; min-width: 160px; text-align: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.25rem;
+  }
+  .sb-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(113, 178, 156, 0.7); margin-bottom: 0.5rem; }
+  .sb-id    { font-size: 14px; color: var(--text-dark); font-weight: 600; }
+  .sb-title { font-size: 14px; color: var(--text-dark); font-weight: 600; }
+  .sb-sub   { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .sb-arrow { font-size: 24px; color: var(--teal); padding: 0 0.5rem; }
+
+  /* Big quote band + cite (markdown can't emit <cite>, so we use a span). */
+  .quote-band { background: var(--navy); }
+  .big-quote .cite { font-size: 13px; color: rgba(255,255,255,0.4); font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── CITATION HOVER POP-UPS ── */
+  /* citeproc still needs #refs to render the bibliography into; the rendered
+     entries are read by assets/js/citation-tooltips.js to populate the
+     pop-ups, so the section itself stays out of view rather than deleted. */
+  #refs { display: none; }
+
+  .cite-wrap { position: relative; }
+  .cite-wrap .citation a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+
+  /* Pop-ups are appended to <body> by citation-tooltips.js — not nested in
+     the citation — because .card, .split and .canvas-grid use overflow:hidden
+     for their rounded corners and would clip a nested pop-up. The JS sets
+     top/left in page coordinates (clamped to the viewport) and --arrow-x so
+     the arrow stays anchored on the citation mark. */
+  .cite-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+    max-width: min(340px, calc(100vw - 2rem));
+    background: var(--navy);
+    color: rgba(255,255,255,0.92);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    overflow-wrap: anywhere;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(10, 23, 37, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 500;
+  }
+  .cite-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-x, 50%);
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--navy);
+  }
+  /* When there is no room above the citation, the JS flips the pop-up below
+     it and the arrow points upwards instead. */
+  .cite-tooltip.is-below::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: var(--navy);
+  }
+  .cite-tooltip a { color: var(--teal); }
+  /* IEEE (numeric CSL) renders each entry as two divs — "[n]" + text — where
+     .csl-left-margin is floated and .csl-right-inline is indented. Inside the
+     narrow pop-up, flatten both to inline so "[1] Author, Title…" reads cleanly. */
+  .cite-tooltip .csl-left-margin { float: none; display: inline; min-width: 0; }
+  .cite-tooltip .csl-right-inline { margin-left: 0; padding-left: 0; display: inline; }
+
+  .cite-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
