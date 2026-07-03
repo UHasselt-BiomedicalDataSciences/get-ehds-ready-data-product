@@ -86,14 +86,14 @@ The reality today
 ::: {.split-icon}
 ✕
 :::
-Clinical data were collected to support care delivery, not designed for reuse in research [@weiskopf2013quality].
+Clinical data were collected to support care delivery, not designed for reuse in research.
 ::::
 
 :::: {.split-row}
 ::: {.split-icon}
 ✕
 :::
-Different healthcare providers use their own data structures, local codes, and terminology, making direct comparison impossible [@hripcsak2015ohdsi].
+Different healthcare providers use their own data structures, local codes, and terminology, making direct comparison impossible.
 ::::
 
 :::: {.split-row}
@@ -477,7 +477,7 @@ OMOP CDM brings disparate sources (EHRs, claims, registries) into a single perso
 ```
 ::::
 ### Statistical power
-Comparable data enables evidence generation across massive, combined cross-border populations, multiplying the research value of data that would otherwise remain siloed [@hripcsak2015ohdsi].
+Comparable data enables evidence generation across massive, combined cross-border populations, multiplying the research value of data that would otherwise remain siloed.
 :::::
 
 ::::: {.pillar}
@@ -564,7 +564,7 @@ The data contract enforces the output interface. The contract is the specificati
 03 / Scale
 ::::
 ### SwitchBox & OMOP CDM
-The SwitchBox ETL converts the data from the local data product into OMOP CDM format. The EHDS does not prescribe a common data model for secondary use; OMOP CDM is the model GET REHDY has chosen to close that syntactic and semantic gap [@rijnbeek2026], in line with large-scale European initiatives such as EHDEN and the EMA's DARWIN EU network, which already standardise on OMOP [@ehden].
+The SwitchBox ETL converts the data from the local data product into OMOP CDM format. The EHDS does not prescribe a common data model for secondary use; OMOP CDM is the model GET REHDY has chosen to close that syntactic and semantic gap [@rijnbeek2026], in line with large-scale European initiatives such as EHDEN [@ehden] and the DARWIN EU network, which already standardise on OMOP.
 :::::
 
 ::::: {.card .card-purple}
