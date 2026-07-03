@@ -7,7 +7,7 @@ link-citations: true
 ---
 
 <!--
- GET REHDY landing page — authored in Quarto markdown.
+ GET REHDY landing page (authored in Quarto markdown).
 
  The visible nav header and footer are injected on every page from
  _includes/header.html and _includes/footer.html (see _quarto.yml).
@@ -25,7 +25,7 @@ link-citations: true
 :::::::: {.hero}
 ::::::: {.hero-inner}
 :::: {.hero-eyebrow}
-GET REHDY — Technical Work Package
+GET REHDY - Technical Work Package
 ::::
 
 # Engineering health data<br>for *secondary use*
@@ -86,14 +86,14 @@ The reality today
 ::: {.split-icon}
 ✕
 :::
-Clinical data were collected to support care delivery — not designed for reuse in research [@weiskopf2013quality].
+Clinical data were collected to support care delivery, not designed for reuse in research [@weiskopf2013quality].
 ::::
 
 :::: {.split-row}
 ::: {.split-icon}
 ✕
 :::
-Different healthcare providers use their own data structures, local codes, and terminology — making direct comparison impossible [@hripcsak2015ohdsi].
+Different healthcare providers use their own data structures, local codes, and terminology, making direct comparison impossible [@hripcsak2015ohdsi].
 ::::
 
 :::: {.split-row}
@@ -141,13 +141,13 @@ Clear ownership, version control, and a reliable interface that researchers can 
 ::: {.split-icon}
 ✓
 :::
-Quality and governance embedded in the data itself — not added as an afterthought.
+Quality and governance embedded in the data itself, not added as an afterthought.
 ::::
 :::::
 ::::::
 
 :::: {.insight}
-The EHDS explicitly recognises secondary use as a core goal, aiming to enable health data to flow across organisational and national borders to support research, public health, policymaking, and innovation. The regulation defines *what* must be made available and discoverable — who may access which data categories, for which purposes, and under which conditions — and it even mandates dataset descriptions and a data quality and utility label . What it does not prescribe is *how*: the local data engineering needed to turn raw datasets into health data that can live up to those descriptions and labels.
+The EHDS explicitly recognises secondary use as a core goal, aiming to enable health data to flow across organisational and national borders to support research, public health, policymaking, and innovation. The regulation defines *what* must be made available and discoverable, who may access which data categories, for which purposes, and under which conditions, and it even mandates dataset descriptions and a data quality and utility label. What it does not prescribe is *how*: the local data engineering needed to turn raw datasets into health data that can live up to those descriptions and labels.
 ::::
 
 :::: {.insight}
@@ -168,7 +168,7 @@ The paradigm shift
 ## From data as a by-product to Data as a Product
 
 :::: {.section-intro}
-The central concept in this work package is to treat health data not as something collected as a side effect of care, but as a product — intentionally designed, owned, and maintained to serve its users' needs reliably.
+The central concept in this work package is to treat health data not as something collected as a side effect of care, but as a product, intentionally designed, owned, and maintained to serve its users' needs reliably.
 ::::
 
 :::::: {.card-grid}
@@ -177,7 +177,7 @@ The central concept in this work package is to treat health data not as somethin
 01 / Curation
 ::::
 ### Designed for a purpose
-Instead of collecting raw records in isolated silos, a data product is curated around specific user needs and use cases — defined before any code is written.
+Instead of collecting raw records in isolated silos, a data product is curated around specific user needs and use cases, defined before any code is written.
 :::::
 
 ::::: {.card .card-teal}
@@ -185,7 +185,7 @@ Instead of collecting raw records in isolated silos, a data product is curated a
 02 / Governance
 ::::
 ### Quality baked in
-Governance is embedded into the data product itself — quality rules, semantics, and access terms are part of the design, not added when someone asks to share it. This is the posture the EHDS data quality and utility label is designed to reward.
+Governance is embedded into the data product itself, the quality rules, semantics, and access terms are part of the design, not added when someone asks to share it. This is the posture the EHDS data quality and utility label is designed to reward.
 :::::
 
 ::::: {.card .card-orange}
@@ -193,7 +193,7 @@ Governance is embedded into the data product itself — quality rules, semantics
 03 / Lifecycle
 ::::
 ### Clear ownership
-Every data product has a named owner — a domain team accountable for its quality, evolution, and maintenance throughout its lifetime.
+Every data product has a named owner, a domain team accountable for its quality, evolution, and maintenance throughout its lifetime.
 :::::
 
 ::::: {.card .card-blue}
@@ -201,7 +201,7 @@ Every data product has a named owner — a domain team accountable for its quali
 04 / Interface
 ::::
 ### A stable data contract
-Consumers get a versioned, dependable interface they can build on. Internal systems can change freely; the published interface evolves only through explicit, versioned releases.
+Consumers get a versioned, dependable interface they can build on. Internal systems can change freely, the published interface evolves only through explicit, versioned releases.
 :::::
 
 ::::: {.card .card-blue}
@@ -209,13 +209,13 @@ Consumers get a versioned, dependable interface they can build on. Internal syst
 05 / Metadata
 ::::
 ### Catalogued & discoverable
-A HealthDCAT-AP record — a dataset description conforming to the draft DCAT-AP extension for health data that underpins EHDS dataset descriptions [@healthdcatap2026] — is prepared for publication in EHDS catalogues, giving consumers a stable, trustworthy description.
+A HealthDCAT-AP record, a dataset description conforming to the draft DCAT-AP extension for health data that underpins EHDS dataset descriptions [@healthdcatap2026], is prepared for publication in EHDS catalogues, giving consumers a stable, trustworthy description.
 :::::
 
 ::::::
 
 :::: {.insight}
-A well-designed data product meets the expectations set by the EHDS. It makes data findable, accessible, interoperable, and reusable [@wilkinson2016fair] and trustworthy (FAIR-T) in practice — across EU Member States — and is designed to lower the compliance burden by embedding good data management and governance into the data itself, rather than bolting it on when sharing is requested.
+A well-designed data product makes data findable, accessible, interoperable, and reusable [@wilkinson2016fair] and trustworthy (FAIR-T) in practice and is designed to lower the compliance burden by embedding good data management and governance into the data itself, rather than bolting it on when sharing is requested.
 ::::
 
 :::::::
@@ -232,7 +232,7 @@ Step 1 — Design
 ## The Data Product Canvas
 
 :::: {.section-intro}
-A data product is not discovered in the data — it is intentionally designed. The Data Product Canvas [@datameshcanvas] is a structured tool that defines all essential decisions on a single page, before a single line of code is written. It ensures that users, domain experts, and engineers share a common vision.
+A data product is not discovered in the data, it is intentionally designed. The Data Product Canvas [@datameshcanvas] is a structured tool that defines all essential decisions on a single page, before a single line of code is written. It ensures that users, domain experts, and engineers share a common vision.
 ::::
 
 :::: {.p-note}
@@ -266,7 +266,7 @@ A researcher wants access to data for comparable analyses across studies and sit
 :::: {.canvas-block-label}
 Data contract (output ports)
 ::::
-Versioned tables exposing standardised variables. Data holders can refactor internals freely; the interface changes only through explicit, versioned releases — never silently.
+Versioned tables exposing standardised variables. Data holders can refactor internals freely; the interface changes only through explicit, versioned releases.
 :::::
 
 ::::: {.canvas-block}
@@ -287,7 +287,7 @@ Architecture
 :::: {.canvas-block-label}
 Ubiquitous language
 ::::
-Multiple Sclerosis Data Alliance (MSDA) Core Dataset (v2022) [@parciak2024] — 44 globally recommended variables, each defined with SNOMED CT codes in a published data dictionary. 
+Multiple Sclerosis Data Alliance (MSDA) Core Dataset (v2022) [@parciak2024]: 44 globally recommended variables, each defined with SNOMED CT codes in a published data dictionary. 
 :::::
 
 ::::: {.canvas-block}
@@ -296,7 +296,7 @@ Classification
 ::::
 [Source-aligned]{.tag .tag-teal}
 
-The product exposes the neurology domain's own clinical data in its ubiquitous language — it aggregates no other domains and is not tailored to a single consumer.
+The product exposes the neurology domain's own clinical data in its ubiquitous language. It aggregates no other domains and is not tailored to a single consumer.
 :::::
 ::::::
 
@@ -316,7 +316,7 @@ Step 2 — Build
 ## Data contract & data contract-first design
 
 :::: {.section-intro}
-A data contract is an agreement between a data producer and its consumers [@jones2023datacontracts]. It specifies exactly what the data product exposes — its structure, semantics, quality rules, and service-level commitments — and is machine-readable, so it can be automatically enforced rather than just documented and forgotten.
+A data contract is an agreement between a data producer and its consumers [@jones2023datacontracts]. It specifies exactly what the data product exposes, its structure, semantics, quality rules, and service-level commitments, and is machine-readable, so it can be automatically enforced rather than just documented and forgotten.
 ::::
 
 :::::: {.split .mb-lg}
@@ -330,7 +330,7 @@ Without a data contract
 ::: {.split-icon}
 ✕
 :::
-An upstream change silently breaks a downstream dashboard or research pipeline — nobody is notified until the data user spots wrong numbers.
+An upstream change silently breaks a downstream dashboard or research pipeline and nobody is notified until the data user spots wrong numbers.
 ::::
 
 :::: {.split-row}
@@ -344,7 +344,7 @@ Quality is checked manually, if at all, based on implicit and undocumented expec
 ::: {.split-icon}
 ✕
 :::
-Discovering what a dataset contains means asking around — metadata lives in someone's head or an outdated wiki page.
+Discovering what a dataset contains means asking around, metadata lives in someone's head or an outdated wiki page.
 ::::
 :::::
 
@@ -364,7 +364,7 @@ Schema drift is detected automatically and blocks the change in the pipeline bef
 ::: {.split-icon}
 ✓
 :::
-Quality rules and service-level agreements are validated automatically on every run — pass or fail, with no ambiguity.
+Quality rules and service-level agreements are validated automatically on every run, they pass or fail, with no ambiguity.
 ::::
 
 :::: {.split-row}
@@ -434,12 +434,12 @@ Quality rules from the contract are applied to the materialised data
 :::::: {.card-grid .grid-2}
 ::::: {.card .card-teal}
 ### Why machine-readable matters
-Written in YAML (using the Open Data Contract Standard, ODCS) [@odcs2025], the contract can be version-controlled, validated automatically, and used to generate pipeline definitions — rather than drifting out of date in a document nobody reads.
+Written in YAML (using the Open Data Contract Standard, ODCS) [@odcs2025], the contract is version-controlled, validated automatically, and used to generate pipeline definitions.
 :::::
 
 ::::: {.card .card-teal}
 ### What a data contract commits to
-A data contract commits producers to deliver a well‑defined dataset interface — its schema and semantics, data quality, freshness and availability, ownership, and terms of use — that consumers can safely depend on, while allowing producers to change internal storage and processing as long as those commitments are upheld.
+A data contract commits producers to deliver a well‑defined dataset interface (its schema and semantics, data quality, freshness and availability, ownership, and terms of use) that consumers can safely depend on, while allowing producers to change internal storage and processing as long as those commitments are upheld.
 :::::
 ::::::
 
@@ -456,7 +456,7 @@ Step 3 — Scale to cross-border research
 ## OMOP CDM & SwitchBox
 
 :::: {.section-intro}
-A well-designed local data product is a necessary foundation — but it does not always enable cross-border research. For that, we need a shared data model so a researcher's analytical code runs identically everywhere.
+A well-designed local data product is a necessary foundation, but it does not always enable cross-border research. For that, we need a shared data model so a researcher's analytical code runs identically everywhere.
 ::::
 
 :::::: {.pillars}
@@ -467,7 +467,7 @@ A well-designed local data product is a necessary foundation — but it does not
 ```
 ::::
 ### Harmonisation
-OMOP CDM brings disparate sources — EHRs, claims, registries — into a single person-centric structure using shared concepts [@ohdsi_cdm_spec]. Results from different data holders can be pooled and compared.
+OMOP CDM brings disparate sources (EHRs, claims, registries) into a single person-centric structure using shared concepts [@ohdsi_cdm_spec]. Results from different data holders can be pooled and compared.
 :::::
 
 ::::: {.pillar}
@@ -477,7 +477,7 @@ OMOP CDM brings disparate sources — EHRs, claims, registries — into a single
 ```
 ::::
 ### Statistical power
-Comparable data enables evidence generation across massive, combined cross-border populations — multiplying the research value of data that would otherwise remain siloed [@hripcsak2015ohdsi].
+Comparable data enables evidence generation across massive, combined cross-border populations, multiplying the research value of data that would otherwise remain siloed [@hripcsak2015ohdsi].
 :::::
 
 ::::: {.pillar}
@@ -487,7 +487,7 @@ Comparable data enables evidence generation across massive, combined cross-borde
 ```
 ::::
 ### Data stays local
-Standardised analyses are shipped to the data, not the other way around. Patient-level records never need to be centralised — the query travels; the data does not. This federated approach is proven at the European scale by the EHDEN network [@ehden].
+Standardised analyses are shipped to the data, not the other way around. Patient-level records never need to be centralised, it is the query that travels; not the data. This federated approach is proven at the European scale by the EHDEN network [@ehden].
 :::::
 ::::::
 
@@ -496,7 +496,7 @@ The SwitchBox
 ::::
 
 :::: {.p-muted}
-The SwitchBox [@parciak2026] — described in a preprint currently under peer review — is a pilot ETL (Extract, Transform, Load) tool that automates the conversion of the MS data product's contracted output into the OMOP CDM format. It is the bridge between the local data product and cross-border research infrastructure.
+The SwitchBox [@parciak2026], described in a preprint currently under peer review, is a pilot ETL (Extract, Transform, Load) tool that automates the conversion of the MS data product's contracted output into the OMOP CDM format. It is the bridge between the local data product and cross-border research infrastructure.
 ::::
 
 :::::: {.sb-flow}
@@ -542,7 +542,7 @@ Putting it together
 
 ## The end-to-end workflow
 
-:::::: {.card-grid}
+:::::: {.card-grid .grid-2}
 ::::: {.card .card-navy}
 :::: {.card-number}
 01 / Design
@@ -564,7 +564,7 @@ The data contract enforces the output interface. The contract is the specificati
 03 / Scale
 ::::
 ### SwitchBox & OMOP CDM
-The SwitchBox ETL converts the data from the local data product into OMOP CDM format. The EHDS does not prescribe a common data model for secondary use; OMOP CDM is the model GET REHDY has chosen to close that syntactic and semantic gap [@rijnbeek2026] — in line with large-scale European initiatives such as EHDEN and the EMA's DARWIN EU network, which already standardise on OMOP [@ehden].
+The SwitchBox ETL converts the data from the local data product into OMOP CDM format. The EHDS does not prescribe a common data model for secondary use; OMOP CDM is the model GET REHDY has chosen to close that syntactic and semantic gap [@rijnbeek2026], in line with large-scale European initiatives such as EHDEN and the EMA's DARWIN EU network, which already standardise on OMOP [@ehden].
 :::::
 
 ::::: {.card .card-purple}
@@ -575,18 +575,9 @@ The SwitchBox ETL converts the data from the local data product into OMOP CDM fo
 A HealthDCAT-AP [@healthdcatap2026] description of the dataset is prepared for publication in national and EU-level catalogues, enabling researchers to discover it and evaluate its suitability for their needs.
 :::::
 
-::::: {.card .card-blue}
-:::: {.card-number}
-05 / Operate
-::::
-### Owned beyond publication
-Publication is not the endpoint. The owning team monitors the contract's quality rules and service levels during every run, gathers consumer feedback, and evolves the product through versioned releases.
-:::::
-
 ::::::
 :::::::
 ::::::::
-
 
 <!-- Bibliography source for the citation hover pop-ups (assets/js/citation-tooltips.js).
  Hidden via CSS (#refs in get-rehdy.css); citeproc still needs this div to render into. -->
