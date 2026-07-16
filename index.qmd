@@ -73,7 +73,7 @@ The challenge
 ## Legal permission ≠ usable data
 
 :::: {.section-intro}
-The EHDS Regulation (EU) 2025/327 [@ehds2025_327] obliges data holders across the EU to make electronic health data available for secondary use, and create the infrastructure for that data to be requested and used across borders. The regulation entered into force on 26 March 2025, and its obligations became applicable from 26 March 2029. **The window for data holders to get EHDS ready is now.** But a legal right to access data is not the same as ready-to-use data.
+The EHDS Regulation (EU) 2025/327 [@ehds2025_327] obliges data holders across the EU to make electronic health data available for secondary use, and create the infrastructure for that data to be requested and used across borders. The regulation entered into force on 26 March 2025, and its obligations will become applicable from 26 March 2029. **The window for data holders to get EHDS ready is now.** But a legal right to access data is not the same as ready-to-use data.
 ::::
 
 :::::: {.split}
