@@ -1,4 +1,9 @@
-<!-- Injected into <head> of every page (include-in-header). Web fonts used by the GET REHDY theme. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Injected into <head> of every page (include-in-header).
+
+     Deliberately free of third-party resources. The web fonts used by the
+     GET REHDY theme are self-hosted in assets/fonts/ and declared with
+     @font-face in assets/css/01-fonts.css — they used to be
+     loaded from fonts.googleapis.com, which sent every visitor's IP address
+     to Google before any consent. Keep it that way: no CDN links, no
+     analytics, no external scripts. -->
+<meta name="referrer" content="strict-origin-when-cross-origin">

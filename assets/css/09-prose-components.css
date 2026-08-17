@@ -1,0 +1,436 @@
+/* ── PROSE COMPONENTS — part 9 of 9 of the GET REHDY stylesheet ──
+   Linked card, citation pop-ups, block index, worked example, scope warning, evolving notice, buttons.
+   Order matters: the browser concatenates these in the order listed under
+   `css:` in _quarto.yml, and that order is the cascade. */
+  /* ── LINKED CARD ──
+     `.card.is-linked` turns a whole card into one click target for the chapter
+     page named in its heading: the heading link's ::after is stretched over the
+     card, so the entire surface is clickable while the link text stays the
+     heading (screen readers announce the chapter name, not "click here"). */
+  .card.is-linked { transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .card.is-linked h3 a { color: inherit; text-decoration: none; }
+  .card.is-linked h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .card.is-linked:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(10, 23, 37, 0.12);
+  }
+  .card.is-linked:hover h3 { color: var(--teal-mid); }
+  .card.is-linked h3 a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  /* Fixed-column card grids (the reference used inline grid-template-columns).
+     `.grid-1` stacks the cards one under the other at any width. */
+  .card-grid.grid-1 { grid-template-columns: 1fr; }
+  .card-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* Inline mono accents inside cards / canvas. */
+  .accent-teal      { color: rgba(113, 178, 156, 0.9); }
+  .canvas-arch      { font-size: 11px; color: var(--text-muted); }
+  .canvas-accent-id { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .card-inline-mono { font-size: 12px; }
+
+  /* SwitchBox diagram (reference used inline styles on flex nodes). */
+  .sb-flow { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+  .sb-node {
+    flex: 1; min-width: 160px; text-align: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.25rem;
+  }
+  .sb-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(113, 178, 156, 0.7); margin-bottom: 0.5rem; }
+  .sb-id    { font-size: 14px; color: var(--text-dark); font-weight: 600; }
+  .sb-title { font-size: 14px; color: var(--text-dark); font-weight: 600; }
+  .sb-sub   { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .sb-arrow { font-size: 24px; color: var(--teal); padding: 0 0.5rem; }
+
+  /* Big quote band + cite (markdown can't emit <cite>, so we use a span). */
+  .quote-band { background: var(--navy); }
+  .big-quote .cite { font-size: 13px; color: rgba(255,255,255,0.4); font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── CITATION HOVER POP-UPS ── */
+  /* citeproc still needs #refs to render the bibliography into; the rendered
+     entries are read by assets/js/citation-tooltips.js to populate the
+     pop-ups, so the section itself stays out of view rather than deleted. */
+  #refs { display: none; }
+
+  .cite-wrap { position: relative; }
+  .cite-wrap .citation a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+
+  /* Pop-ups are appended to <body> by citation-tooltips.js — not nested in
+     the citation — because .card, .split and .canvas-grid use overflow:hidden
+     for their rounded corners and would clip a nested pop-up. The JS sets
+     top/left in page coordinates (clamped to the viewport) and --arrow-x so
+     the arrow stays anchored on the citation mark. */
+  .cite-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: max-content;
+    max-width: min(340px, calc(100vw - 2rem));
+    background: var(--navy);
+    color: rgba(255,255,255,0.92);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    overflow-wrap: anywhere;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(10, 23, 37, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 500;
+  }
+  .cite-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-x, 50%);
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--navy);
+  }
+  /* When there is no room above the citation, the JS flips the pop-up below
+     it and the arrow points upwards instead. */
+  .cite-tooltip.is-below::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: var(--navy);
+  }
+  .cite-tooltip a { color: var(--teal); }
+  /* IEEE (numeric CSL) renders each entry as two divs — "[n]" + text — where
+     .csl-left-margin is floated and .csl-right-inline is indented. Inside the
+     narrow pop-up, flatten both to inline so "[1] Author, Title…" reads cleanly. */
+  .cite-tooltip .csl-left-margin { float: none; display: inline; min-width: 0; }
+  .cite-tooltip .csl-right-inline { margin-left: 0; padding-left: 0; display: inline; }
+
+  .cite-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     PROSE (long-form subpages)
+     The landing page is built entirely from components, so the global reset
+     (margin/padding: 0) never shows. A text-heavy subpage does need ordinary
+     paragraph, list, figure and code spacing — scoped to `.prose` so the
+     component pages are untouched. Wrap a subpage's body copy in
+     ::: {.prose} … ::: to opt in.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  .prose p { margin-bottom: 1.25rem; }
+  .prose h2 { margin-top: 0; }
+  .prose h3 { margin-top: 2.75rem; margin-bottom: 0.75rem; }
+  .section-dark .prose h3 { color: #fff; }
+
+  .prose ol,
+  .prose ul { padding-left: 1.4rem; margin: 0 0 1.5rem; }
+
+  /* A `---` divider between passages: a hairline, not the browser's default. */
+  .prose hr {
+    height: 1px;
+    border: 0;
+    background: var(--border);
+    margin: 2.5rem 0;
+  }
+  .section-dark .prose hr { background: rgba(255,255,255,0.15); }
+  .prose li { margin-bottom: 0.4rem; }
+  .prose li:last-child { margin-bottom: 0; }
+
+  /* Inline code / identifiers in body copy. */
+  .prose code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: rgba(10, 23, 37, 0.06);
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+  }
+  .section-dark .prose code { background: rgba(255,255,255,0.1); color: var(--teal); }
+
+  /* Figures (Pandoc emits <figure><p><img></p><figcaption>). */
+  .prose figure { margin: 2.5rem 0; }
+  .prose figure p { margin-bottom: 0; }
+  .prose figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+  }
+  .prose figcaption {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+  .section-dark .prose figcaption { color: rgba(255,255,255,0.5); }
+
+  /* A .card used as a prose container (a whole section of body copy rather than
+     a short grid tile): keep the card chrome — border, accent bar, padding —
+     but restore readable body type inside it. */
+  .prose .card { margin: 1.75rem 0; padding: 1.75rem 2rem; }
+  .prose .card h3 { font-size: 1.1rem; margin-top: 0; margin-bottom: 1rem; }
+  /* Cards whose title is a bold lead-in paragraph rather than a heading
+     (the "**Step 1 — …**" blocks) read the same as the heading cards. */
+  .prose .card > p:first-child { font-size: 1.05rem; margin-bottom: 0.85rem; }
+  .prose .card > p:first-child strong { color: var(--text-dark); font-weight: 600; }
+  .prose .card p { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+  .prose .card p:last-child { margin-bottom: 0; }
+  .prose .card .gr-callout,
+  .prose .card .dp-example,
+  .prose .card .dp-warning,
+  .prose .card .insight { margin: 1.5rem 0 0; }
+
+  /* ── BLOCK INDEX ──
+     An ordinary ordered list of in-page links, laid out as a grid of jump
+     tiles. The 01–08 markers are CSS counters, so the markdown keeps its
+     plain `1.` … `8.` numbering. */
+  .block-index ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.75rem;
+    counter-reset: block-index;
+  }
+  .block-index li { counter-increment: block-index; margin: 0; }
+  .block-index li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 100%;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .block-index li a::before {
+    content: counter(block-index, decimal-leading-zero);
+    flex: 0 0 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--teal-light);
+    color: var(--teal-mid);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .block-index li a:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(10, 23, 37, 0.10);
+  }
+  .block-index li a:hover::before { background: var(--teal); color: #fff; }
+  .block-index li a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  /* ── 📦 WORKED EXAMPLE ── */
+  .dp-example {
+    background: var(--slate);
+    border: 1px solid var(--slate-mid);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.4rem;
+    margin: 1.75rem 0;
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+  .dp-example p { margin-bottom: 0; }
+  .dp-example p + p { margin-top: 0.6rem; }
+  .dp-example strong { color: var(--teal-mid); }
+  .dp-example code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: rgba(113, 178, 156, 0.16);
+    color: var(--teal-mid);
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+  }
+  .dp-example ol,
+  .dp-example ul { padding-left: 1.4rem; margin: 0.75rem 0 0; }
+  .dp-example li { margin-bottom: 0.5rem; }
+  .dp-example li:last-child { margin-bottom: 0; }
+
+  /* ── ⚠ SCOPE / LIMITATION ── */
+  .dp-warning {
+    background: var(--orange-light);
+    border: 1px solid rgba(201, 122, 74, 0.28);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+    padding: 1.1rem 1.4rem;
+    margin: 1.75rem 0;
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+  .dp-warning p { margin-bottom: 0; }
+  .dp-warning strong { color: #7A4A28; }
+  .dp-warning code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: rgba(201, 122, 74, 0.16);
+    color: #7A4A28;
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+  }
+
+  /* ── ⏱ EVOLVING GUIDE ── */
+  .dp-evolving {
+    background: var(--orange-light);
+    border: 1px solid rgba(201, 122, 74, 0.35);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 2.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    color: #7A4A28;
+    line-height: 1.6;
+  }
+  .dp-evolving p { margin-bottom: 0; }
+  .dp-evolving.panel-icon > svg { stroke: var(--orange); stroke-width: 2; }
+  /* A small "work in progress" wrench sitting inline, right before the notice
+     text — the gutter clock says *when*, this says *still being worked on*. */
+  .dp-evolving .wip-icon {
+    display: inline-block;
+    width: 1.05em;
+    height: 1.05em;
+    margin-right: 0.45em;
+    vertical-align: -0.17em;
+  }
+  .dp-evolving .wip-icon > svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .section-dark .dp-evolving {
+    background: rgba(201, 122, 74, 0.14);
+    border-color: rgba(201, 122, 74, 0.4);
+    color: #F0D9C6;
+  }
+  /* The step pages carry `date: last-modified`, which feeds the "Last updated"
+     stamp below — but pandoc's template also prints that date in a title block
+     above the hero. The pages build their own headers, so drop it. */
+  #title-block-header { display: none; }
+
+  /* The render-time "Last updated:" stamp under the notice — a quieter second
+     line, so the due date stays the thing you read first. */
+  .dp-evolving .page-updated {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(122, 74, 40, 0.72);
+  }
+  .section-dark .dp-evolving .page-updated { color: rgba(240, 217, 198, 0.72); }
+
+  /* A panel carrying a leading icon: the lightbulb marks a "rationale"
+     paragraph as the *why* behind a choice, the triangle marks a limitation.
+     `.insight-icon` is the same modifier under its original name. */
+  /* Grid, not flex: the icon holds column 1 while every other child — a
+     paragraph, a list, several of each — stacks down column 2. */
+  .insight-icon,
+  .panel-icon {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    column-gap: 1rem;
+    align-items: start;
+  }
+  .dp-warning.panel-icon > svg { stroke: var(--orange); }
+  .insight-icon > svg,
+  .panel-icon > svg {
+    grid-column: 1;
+    grid-row: 1;
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+    fill: none;
+    stroke: var(--teal-mid);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .insight-icon > :not(svg),
+  .panel-icon > :not(svg) { grid-column: 2; margin-bottom: 0.75rem; }
+  .insight-icon > :last-child,
+  .panel-icon > :last-child { margin-bottom: 0; }
+  .prose .card .gr-callout p { color: rgba(255,255,255,0.85); }
+
+  /* A .gr-callout inside prose keeps its own rhythm, and its lists and inline
+     code must stay legible on the navy background. */
+  .prose .gr-callout p { margin-bottom: 0; }
+  .prose .gr-callout p + p { margin-top: 0.75rem; }
+  .gr-callout ol,
+  .gr-callout ul { padding-left: 1.4rem; margin: 0.75rem 0 0; }
+  .gr-callout li {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 0.5rem;
+  }
+  .gr-callout li:last-child { margin-bottom: 0; }
+  .gr-callout code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: rgba(255,255,255,0.1);
+    color: var(--teal);
+    padding: 0.12em 0.4em;
+    border-radius: 4px;
+    font-style: normal;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.9rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .btn-primary { background: var(--teal); color: var(--navy); }
+  .btn-primary:hover { background: var(--teal-mid); color: #fff; transform: translateY(-1px); }
+  .btn-secondary { background: transparent; border-color: var(--border); color: var(--text-dark); }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal-mid); }
+  /* Override the muted-underline rule that .gr-section applies to inline links. */
+  .gr-section a.btn { text-decoration: none; }
+  .gr-section a.btn-primary { color: var(--navy); }
+  .gr-section a.btn-primary:hover { color: #fff; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }

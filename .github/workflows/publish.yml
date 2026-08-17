@@ -1,0 +1,50 @@
+# Render the Quarto site and deploy it to the gh-pages branch.
+#
+# The rendered site is a build artefact and is not committed to main (see
+# .gitignore). This workflow is the only thing that publishes it, so what is
+# live is always a fresh render of what is on main.
+#
+# One-time setup in the repository: Settings → Pages → Source = "Deploy from a
+# branch", Branch = gh-pages / (root). The first successful run creates the
+# branch.
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  # Allows publishing by hand from the Actions tab.
+  workflow_dispatch:
+
+# The publish action pushes the rendered site to the gh-pages branch.
+permissions:
+  contents: write
+
+# A newer push supersedes an in-flight one; never let two deploys race.
+concurrency:
+  group: publish-site
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the source
+        uses: actions/checkout@v4
+
+      # Pinned so a Quarto release cannot silently change the output. Bump
+      # deliberately, and keep it in step with the version in CONTRIBUTING.md.
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.41
+
+      # The site is plain Markdown — no R, Python or Julia execution — so no
+      # language runtime needs installing. The sync-book.sh post-render hook is
+      # skipped here: it belongs to the private book toolchain and is git-ignored,
+      # so it is not in this checkout, and the guard in _quarto.yml passes over it.
+      - name: Render and deploy to gh-pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

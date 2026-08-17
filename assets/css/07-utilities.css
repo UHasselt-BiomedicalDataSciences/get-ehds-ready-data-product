@@ -1,0 +1,19 @@
+/* ── UTILITIES — part 7 of 9 of the GET REHDY stylesheet ──
+   Small single-purpose helpers.
+   Order matters: the browser concatenates these in the order listed under
+   `css:` in _quarto.yml, and that order is the cascade. */
+  /* ── UTILITIES ── */
+  .mono { font-family: var(--mono); }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .tag-teal { background: var(--teal-light); color: var(--teal-mid); }
+  .tag-navy { background: rgba(10, 23, 37, 0.08); color: var(--navy); }
+  .tag-orange { background: var(--orange-light); color: #7A4A28; }
+

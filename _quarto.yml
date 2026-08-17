@@ -3,15 +3,40 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - data-product-canvas.qmd
   resources:
     - assets/
+  # Keeps _book/build/book.md in step with the pages on every render, so the
+  # booklet can never quote an older version of the website.
+  #
+  # Guarded because the hook itself is git-ignored along with the rest of the
+  # private book toolchain: Quarto aborts the render if a post-render script is
+  # missing, which would break CI on a fresh clone. The `if` skips it when
+  # absent while still letting a genuine assembly failure fail the render.
+  post-render:
+    - bash -c "if [ -x _scripts/sync-book.sh ]; then _scripts/sync-book.sh; fi"
 
 lang: en-GB
+
+website:
+  site-url: https://uhasselt-biomedicaldatasciences.github.io/get-ehds-ready-data-product/
+  open-graph: true
+  # Deliberately no navbar or sidebar keys: the site ships its own chrome from
+  # _includes/header.html, and a Quarto navbar would render a second one.
 
 format:
   html:
     minimal: true
-    css: assets/css/get-rehdy.css
+    css:
+      - assets/css/01-fonts.css
+      - assets/css/02-tokens.css
+      - assets/css/03-backgrounds.css
+      - assets/css/04-layout.css
+      - assets/css/05-components.css
+      - assets/css/06-footer.css
+      - assets/css/07-utilities.css
+      - assets/css/08-responsive.css
+      - assets/css/09-prose-components.css
     include-in-header: _includes/head.html
     include-before-body: _includes/header.html
     include-after-body:

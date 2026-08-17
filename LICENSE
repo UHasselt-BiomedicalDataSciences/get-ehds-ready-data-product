@@ -1,16 +1,23 @@
 # LICENSE
 
-All of the materials are publicly available under [open source][osi] license.
+This repository is covered by two licences — one for the written material, one
+for the code — plus a small number of third-party files that carry their own
+terms. All of them are open licences.
 
-## Documents
+## Documentation
 
-All documentation and chapter materials in this repository is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by-human].
+Copyright (c) 2026 Hasselt University
+
+The website content — the `.qmd` pages, this and other Markdown files, and the
+images — is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by-human]
+([legal code][cc-by-legal]).
 
 ## Software
 
-Except where otherwise noted, the software is made available under the
-[OSI][osi]-approved [MIT license][mit-license].
+Except where noted under *Third-party materials* below, the software — the
+stylesheets, scripts, templates, site configuration and helper scripts — is
+made available under the [OSI][osi]-approved [MIT license][mit-license].
 
 > Copyright (c) 2026 Hasselt University
 >
@@ -33,6 +40,25 @@ Except where otherwise noted, the software is made available under the
 > OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 > WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## Third-party materials
+
+These files are redistributed here under their own licences and are **not**
+covered by the two licences above:
+
+| File | Licence | Copyright |
+| --- | --- | --- |
+| `ieee.csl` | [CC BY-SA 3.0][cc-by-sa-3] | Michael Berkowitz and the CSL project contributors — see the `<info>` block inside the file |
+| `assets/fonts/inter-*.woff2` | [SIL Open Font Licence 1.1][ofl] | © 2016 The Inter Project Authors, <https://github.com/rsms/inter> |
+| `assets/fonts/jetbrains-mono-*.woff2` | [SIL Open Font Licence 1.1][ofl] | © 2020 The JetBrains Mono Project Authors, <https://github.com/JetBrains/JetBrainsMono> |
+
+Note that `ieee.csl` is ShareAlike: a modified version of that file must be
+distributed under the same licence. The fonts are unmodified subsets as
+published; see [`assets/fonts/README.md`](assets/fonts/README.md) for why they
+are self-hosted.
+
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[cc-by-sa-3]: https://creativecommons.org/licenses/by-sa/3.0/
 [mit-license]: https://opensource.org/licenses/mit-license.html
+[ofl]: https://openfontlicense.org/open-font-license-official-text/
 [osi]: https://opensource.org

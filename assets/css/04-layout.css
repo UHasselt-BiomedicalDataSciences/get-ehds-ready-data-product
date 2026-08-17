@@ -1,0 +1,215 @@
+/* ── LAYOUT — part 4 of 9 of the GET REHDY stylesheet ──
+   Page furniture: nav, hero, section wrapper and section header.
+   Order matters: the browser concatenates these in the order listed under
+   `css:` in _quarto.yml, and that order is the cascade. */
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 23, 37, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(113, 178, 156, 0.3);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  .nav-brand img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  /* One row, vertically centred. `align-items: center` is what puts the text
+     links and the GitHub mark on a shared centre line — without it the items
+     stretch to the tallest and the icon drifts off the text's optical centre.
+     The margin/padding reset removes the browser's default list indent, and
+     `nowrap` keeps the row from breaking onto a second line at tight widths. */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .nav-links li {
+    display: flex;
+    align-items: center;
+  }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    /* Matching the glyph box to the icon box: with the inherited body
+       line-height the text sits in a taller box than the 18px mark, which is
+       what makes an icon look a hair high next to its neighbours. */
+    line-height: 1;
+    white-space: nowrap;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* Repo link. `fill: currentColor` lets the mark inherit the hover colour from
+     the rule above instead of restating it; `display: block` drops the
+     inline-baseline gap that would otherwise pad the SVG from below. */
+  .nav-github svg {
+    fill: currentColor;
+    display: block;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(113,178,156,0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 100% at 100% 0%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse 70% 100% at 100% 0%, #000 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(113,178,156,0.12) 0%, transparent 70%);
+  }
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--teal);
+  }
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--teal);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(113,178,156,0.18);
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hero-meta-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+  .hero-meta-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── SECTION WRAPPER ──
+     The outer padding lives on `.gr-section` (see the markdown adaptation layer
+     at the end of this file); `.section` is reserved by Pandoc and unused here. */
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-alt { background: var(--slate); }
+  .section-dark {
+    background: var(--navy-mid);
+    color: #fff;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .section-dark h2 { color: #fff; }
+  /* No max-width: the intro paragraph is meant to align with the component it
+     introduces — the .split card, .card-grid, .canvas-grid — all of which fill
+     .section-inner. Capping the measure here left the paragraph ending short of
+     the block below it, which read as a misalignment rather than as a choice. */
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.75;
+  }
+  .section-dark .section-intro { color: rgba(255,255,255,0.6); }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+

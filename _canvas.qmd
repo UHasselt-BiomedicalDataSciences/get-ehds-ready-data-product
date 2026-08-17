@@ -1,0 +1,63 @@
+<!-- The completed Data Product Canvas — single source of truth.
+     Included by index.qmd (#canvas) and data-product-canvas.qmd (#completed). -->
+
+::::: {.canvas-grid}
+
+:::: {.canvas-block .canvas-block-accent}
+::: {.canvas-block-label}
+:::
+#### MS Data Product
+[Identifier: [dp_msda_core_data]{.mono .accent-teal}]{.canvas-accent-id}
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Domain
+:::
+The neurology research team, which is the data product's owner and is accountable for its quality, evolution, and maintenance.
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Consumers & use cases
+:::
+A researcher wants access to data for comparable analyses across studies and sites. At the same time, the OMOP CDM team behind the SwitchBox application needs the same data exposed through a stable, versioned interface so they can reliably transform it into OMOP CDM.
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Data contract (output ports)
+:::
+Versioned tables exposing standardised variables. Data holders can refactor the internals freely; the interface changes only through explicit, versioned releases.
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Sources (input ports)
+:::
+Routinely collected clinical MS data, ingested from the operational system (single input port).
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Architecture
+:::
+[ (ingestion) → input port → transformation → output ports]{.mono .canvas-arch}
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Ubiquitous language
+:::
+Multiple Sclerosis Data Alliance (MSDA) Core Dataset (v2022) [@parciak2024]: 44 globally recommended variables, each defined with SNOMED CT codes in a published data dictionary.
+::::
+
+:::: {.canvas-block}
+::: {.canvas-block-label}
+Classification
+:::
+[Source-aligned]{.tag .tag-teal}
+
+The product exposes the neurology domain's own clinical data in its ubiquitous language. It aggregates no other domains and is not tailored to a single consumer.
+::::
+:::::

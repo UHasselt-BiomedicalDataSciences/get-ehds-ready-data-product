@@ -1,0 +1,240 @@
+---
+pagetitle: "Data Product Canvas — GET REHDY"
+description: "Designing the MS Data Product on a single page: the eight building blocks of the Data Product Canvas."
+lang: en-GB
+author:
+ - name: J. R. Verbiest
+   affiliation: Hasselt University
+date: last-modified
+date-format: "D MMMM YYYY"
+bibliography: references.bib
+csl: ieee.csl
+link-citations: true
+---
+
+<!-- ========================= HERO ========================= -->
+:::::: {.hero}
+::::: {.hero-inner}
+:::: {.hero-eyebrow}
+Step 1 — Design
+::::
+
+# Data Product Canvas
+:::::
+::::::
+
+
+<!-- ===================== INTRODUCTION ===================== -->
+:::::::: {.gr-section .grid-bg #introduction}
+::::::: {.section-inner}
+:::::: {.prose}
+
+:::: {.dp-evolving .panel-icon}
+```{=html}
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+```
+<span class="wip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>This page is evolving.
+
+[Last updated: {{< meta date >}}]{.page-updated}
+::::
+
+## Introduction
+
+A data product is not something that is found in the data; it is intentionally designed. This design process begins long before any coding takes place and follows an iterative, non-linear approach. The design starts with a structured, collaborative workshop in which the product's purpose, stakeholders, data sources, outputs, and architecture are defined.
+During this process, a visual framework helps cross-functional teams collaboratively specify a data product on a single page. This one-page framework serves as a foundation for further development.
+
+The data product canvas promotes a shift toward a **data-product mindset** by encouraging teams to focus on delivering **value to end users** rather than treating data solely from a technical perspective. It ensures that each data product is **valuable**, **usable**, and **feasible** [@cagan2017inspired] by explicitly addressing user needs, technical constraints, and economic value.
+
+The data product canvas is designed for iterative use, enabling teams to refine their designs as new insights emerge. It also facilitates portfolio-level decision-making for managing multiple data product initiatives. By clarifying ownership and interfaces, and aligning with broader organisational goals such as data sharing and interoperability, the canvas promotes scalability and reuse.
+
+The canvas strengthens the business case for investment by clearly outlining the value propositions, costs, and expected benefits. Completing the canvas upfront helps clarify ownership, quality expectations, and access terms. The canvas provides a solid conceptual blueprint for implementing the data product.
+
+In this step, we use the Data Product Canvas from the [Data Mesh Architecture](https://www.datamesh-architecture.com/data-product-canvas). Below an illustration with an example. 
+
+📦 = Data Product.
+::::::
+:::::::
+::::::::
+
+
+<!-- ================= THE EIGHT BUILDING BLOCKS ================= -->
+:::::::: {.gr-section .section-alt #blocks}
+::::::: {.section-inner}
+:::::: {.prose}
+
+## The eight building blocks
+
+The canvas consists of eight building blocks, typically addressed during a facilitated design session. The eight building blocks are:
+
+<!-- Ordinary ordered list; .block-index lays it out as a grid of numbered
+ jump tiles (the 01–08 markers are CSS counters, not typed-in text). -->
+::::: {.block-index}
+1. [Domain](#block-1-domain)
+2. [Data Product Name](#block-2-data-product-name)
+3. [Consumers and Use Cases](#block-3-consumers-and-use-cases)
+4. [Ubiquitous Language](#block-4-ubiquitous-language)
+5. [Data Contract (Output Ports)](#block-5-data-contract-output-ports)
+6. [Sources (Input Ports)](#block-6-sources-input-ports)
+7. [Data Product Architecture](#block-7-data-product-architecture)
+8. [Classification](#block-8-classification)
+:::::
+
+---
+
+::::: {.card .card-navy}
+### Block 1 — Domain {#block-1-domain}
+
+The **Domain block** establishes the organisational and conceptual boundary for a data product and clearly defines its **ownership** and **accountability** [@dehghani2022datamesh].
+
+Each data product is assigned to a specific domain team. This team is responsible for implementation, evolution, and maintenance throughout the team's lifecycle. The team responsibilities include defining and prioritising requirements, managing consumer requests, resolving incidents, and ensuring compliance with domain-specific governance and regulatory requirements.
+
+:::: {.dp-example}
+📦 `Neurology research team`
+::::
+:::::
+
+::::: {.card .card-navy}
+### Block 2 — Data Product Name {#block-2-data-product-name}
+
+The **Data Product Name block** provides a unique, human-readable identifier for the data product. It supports discoverability in the organisation's data-product marketplace — the catalogue where data products are published and found by potential consumers. In practice, the name should follow the organisation’s naming conventions and be stable enough to support versioning, documentation, and portfolio management. In addition to the name, a machine-oriented identifier is often introduced for use in technical artefacts and automation. A clear and consistent naming convention also enhances searchability, reduces confusion between similar products, and ensures traceability across documentation, pipelines, and consuming applications.
+
+:::: {.dp-example}
+📦 **Name**: `MS Data Product` <br>
+📦 **Identifier**: `dp_msda_core_data`
+::::
+:::::
+
+::::: {.card .card-teal}
+### Block 3 — Consumers and Use Cases {#block-3-consumers-and-use-cases}
+
+The **Consumers and Use Cases block** clarifies the purpose of a data product by placing **end-user needs** at its centre. It explicitly identifies the main consumer groups and distinguishes between internal and external users, which is essential for defining access rights, security controls, and privacy measures. It then specifies the key analytical or operational use cases that the data product should support, including the information needs and the expected impact on decisions or processes.
+
+Documenting use cases encourages reuse: the more relevant scenarios a data product supports, the higher its potential value and the better its fit for inclusion in a data product portfolio. Describing these scenarios in the form of user stories (for example, *“As a [type of user], I want [goal] so that [reason]”*) supports clarity about who uses the product, for what purpose, and why it is worth investing in.
+
+:::: {.dp-example}
+📦 Two primary consumers have been defined:
+
+1. *"As an MS researcher, I want MSDA Core Dataset-compliant data for my research."*<br>
+2. *"As the OMOP CDM team responsible for the SwitchBox application, I want MSDA Core Dataset-compliant data exposed through a stable, versioned interface so that I can reliably convert it to OMOP CDM format."*
+::::
+:::::
+
+::::: {.card .card-teal}
+### Block 4 — Ubiquitous Language {#block-4-ubiquitous-language}
+
+The **Ubiquitous Language block** aims to establish a shared vocabulary used consistently by all stakeholders involved in the data product. This block captures the domain concepts, attributes, and relationships, and aligns the terminology used across operational source systems, analytical models, and documentation. A well-defined ubiquitous language reduces misunderstandings, supports semantic interoperability, and makes it easier to combine or compare data products across domains. In practice, the block often references existing domain standards, glossaries, or ontologies and documents.
+
+:::: {.dp-example}
+📦 For the MS data product, the team adopts the MSDA Core Dataset (v2022) [@parciak2024] definitions as the primary semantic reference.
+::::
+:::::
+
+::::: {.card .card-blue}
+### Block 5 — Data Contract (Output Ports) {#block-5-data-contract-output-ports}
+
+The **Data Contract (Output Ports)** block outlines how a data product shares its data with users through standardised interfaces. The data contract specifies the output ports and the access protocols, which may include database tables, files, APIs, and message streams. Also, the data contract details the structure and semantics of the exposed data.
+
+A data contract also includes information about the schema, data types, constraints, and relationships, as well as semantic definitions and quality expectations. In addition to technical specifications, the contract should clearly state the terms of use and key service characteristics, such as availability, refresh frequency, privacy constraints, and change management procedures.
+
+:::: {.dp-example}
+📦 The MSDA Core Dataset serves as the basis for the MS data product's data contract.
+::::
+:::::
+
+::::: {.card .card-blue}
+### Block 6 — Sources (Input Ports) {#block-6-sources-input-ports}
+
+The **Sources (Input Ports) block** defines how raw data enters the data product. It specifies the  APIs, file feeds, or database connections, and clarifies whether the data comes from operational systems, external systems, or other data products. By listing all required data objects and their sources, the block enables a systematic gap analysis and highlights where additional data collection, integration, or acquisition may be required.
+
+:::: {.dp-example}
+📦 In the MS data product design, a primary input port is defined to ingest data from an existing data warehouse that already stores synthetic MS patient records. This data will come from the operational system. The ingestion approach needs to be discussed with the team responsible for the operational system.
+::::
+:::::
+
+::::: {.card .card-orange}
+### Block 7 — Data Product Architecture {#block-7-data-product-architecture}
+
+The **Data Product Architecture block** outlines the internal structure of the data product, describing how code, data, infrastructure, and metadata are organised. It typically captures the main components - such as the ingestion jobs, transformation pipelines, storage layers, and serving interfaces - their responsibilities, and how they interact.
+
+:::: {.dp-example}
+📦 The MS data product comprises: (i) an ingestion layer that queries the data warehouse, (ii) a transformation layer, and (iii) a serving layer that exposes the standardised tables through the agreed output ports.
+::::
+:::::
+
+::::: {.card .card-purple}
+### Block 8 — Classification {#block-8-classification}
+
+The **Classification block** specifies the nature of the exposed data and categorises the data product, typically distinguishing between source-aligned, aggregate, and consumer-aligned data products. Source-aligned data products are closely tied to their originating systems, provide standardised data, and can serve multiple downstream use cases; aggregator data products combine multiple sources to provide cross-domain views; consumer-aligned data products are tailored to specific use cases.
+
+:::: {.dp-example}
+📦 Source-aligned data product. The goal is to serve multiple use cases.
+::::
+:::::
+
+<!-- ===================== BACKGROUND ===================== -->
+## Background {#background}
+
+### The domain standard behind the canvas {#the-msda-core-dataset}
+
+::::: {.insight}
+**MSDA Core Dataset (v2022)** [@parciak2024] — The MS Data Alliance (MSDA) Core Dataset is a globally recommended, standardised set of 44 variables designed to harmonise real-world data in multiple sclerosis (MS) care and use international standards such as SNOMED CT to ensure consistent clinical representation.
+:::::
+
+### Why standardisation matters in the EHDS {#why-standardisation-matters-in-the-ehds}
+
+::::: {.insight .insight-icon}
+```{=html}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1v.2h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+```
+**The rationale of using a core dataset in EHDS** — In the EHDS context, a core dataset can be understood as a structured, standardised “minimum common layer” of variables that makes health data from different sources easier to find, combine and reuse safely for secondary purposes such as research, innovation and evidence-informed policy-making. It defines a limited, high-value set of data elements — with agreed-upon definitions, formats, and code systems — that participating data holders implement, so that at least this subset is semantically interoperable across borders and systems. By binding these elements to recognised terminologies (for example, SNOMED CT, ICD or LOINC), a core dataset makes it substantially easier to transform, pseudonymise and provide data for approved secondary-use projects in a consistent, legally compliant way. This shared “core” also supports EHDS requirements for standardised metadata publication (for example, via HealthDCAT-AP [@healthdcatap2026]), as data holders can describe their datasets using a known structure and terminology, thereby improving discoverability, quality assessment, and interoperability of health data catalogues across the EU.
+:::::
+
+::::: {.insight .insight-icon}
+```{=html}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1v.2h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>
+```
+**The rationale of using OMOP CDM in EHDS** — In a presentation at the Observational Health Data Sciences and Informatics (OHDSI) Europe Community Call on 12 March 2026, Prof. Peter Rijnbeek (Lead OHDSI Europe and Chair of Medical Informatics at Erasmus MC) highlighted the role of the OMOP CDM as a practical mechanism for operationalising the EHDS. He argued that while the EHDS addresses the legal layer of the European Interoperability Framework, the syntactic and semantic layers — defining how data are structured and how concepts are interpreted — remain insufficiently specified. These are precisely the areas where the OMOP CDM and the OHDSI ecosystem of analytical tools provide strong support. Rijnbeek further demonstrated that both operational data flow models envisioned under the EHDS directly benefit from OMOP standardisation [@rijnbeek2026; @ohdsieucommunitycall2026].
+:::::
+
+::::::
+:::::::
+::::::::
+
+<!-- ================= THE COMPLETED CANVAS ================= -->
+:::::::: {.gr-section .grid-bg #completed}
+::::::: {.section-inner}
+:::::: {.prose}
+
+## The completed canvas for 📦 example
+
+::::::
+
+<!-- The completed canvas — shared partial, edit in _canvas.qmd -->
+{{< include _canvas.qmd >}}
+
+:::::::
+::::::::
+
+
+<!-- ========================= SUMMARY ========================= -->
+:::::::: {.gr-section .section-dark .grid-bg #summary}
+::::::: {.section-inner}
+:::::: {.prose}
+
+## Summary
+
+Step 1 — design, introduced the **Data Product Canvas** as a structured, collaborative starting point for designing a data product *before* any implementation begins. Rather than discovering a data product in the data, the canvas helps cross-functional teams — users, data and analytics experts, and IT professionals — deliberately specify it on a single page, establishing a shared language and aligning everyone around a common vision. In doing so, it promotes a **data-product mindset** that prioritises value to end users and ensures each product is **valuable**, **usable**, and **feasible**.
+
+The data product canvas is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps.
+
+::::::
+:::::::
+::::::::
+
+
+<!-- Bibliography source for the citation hover pop-ups (assets/js/citation-tooltips.js).
+ Hidden via CSS (#refs in assets/css/09-prose-components.css); citeproc still needs this div to render into. -->
+::: {#refs}
+:::
+
+<!-- ===================== End ===================== -->

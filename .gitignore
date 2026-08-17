@@ -1,5 +1,73 @@
-# Quarto build cache
+# ─────────────────────────────────────────────────────────────────────────────
+# The book — private, never published with the site.
+# ─────────────────────────────────────────────────────────────────────────────
+/_book/
+
+# The post-render hook that re-assembles _book/build/book.md. Part of the same
+# private toolchain, so it is ignored too; _quarto.yml calls it only if present,
+# and it exits quietly when _book/ is absent, so a fresh clone still renders.
+/_scripts/sync-book.sh
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Quarto
+# ─────────────────────────────────────────────────────────────────────────────
+# Build cache and preview state — regenerated on every render.
 /.quarto/
 
-# macOS
+# The rendered site. It is a build artefact, not source: the site is rendered
+# from these pages by .github/workflows/publish.yml and deployed to the
+# gh-pages branch. Keeping it out of main is what prevents a half-published
+# site.
+/docs/
+/_site/
+
+# Supporting files Quarto writes beside a rendered page (index_files/, ...).
+/*_files/
+
+# Execution artefacts from computational documents.
+/_freeze/
+/.jupyter_cache/
+*.knit.md
+*.utf8.md
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Secrets
+# ─────────────────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Python — the _book/ assembly and build scripts
+# ─────────────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Editors
+# ─────────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Operating systems
+# ─────────────────────────────────────────────────────────────────────────────
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Pages parked while they are being written
+# ─────────────────────────────────────────────────────────────────────────────
+# Holding area for .qmd pages that are not yet published. Kept out of the repo
+# so unfinished drafts are not pushed; the live site links to
+# under-construction.qmd in their place. Note that a path starting with "_" is
+# also ignored by Quarto, so nothing here is ever rendered.
+_pages_under_construction/

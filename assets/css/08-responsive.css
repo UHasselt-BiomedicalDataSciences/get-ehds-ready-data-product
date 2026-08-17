@@ -1,0 +1,66 @@
+/* ── RESPONSIVE — part 8 of 9 of the GET REHDY stylesheet ──
+   Media queries. These apply to everything declared in parts 1-7 above.
+   Order matters: the browser concatenates these in the order listed under
+   `css:` in _quarto.yml, and that order is the cascade. */
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .split { grid-template-columns: 1fr; }
+    .split-panel:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .canvas-grid { grid-template-columns: 1fr 1fr; }
+    .pillars { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .flow { flex-direction: column; }
+    .flow-step { border-radius: 8px; }
+    .flow-step::after { display: none; }
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════
+     MARKDOWN ADAPTATION LAYER
+     These rules let the Quarto-markdown source (index.qmd, fenced divs) render
+     as fully styled HTML. They target the DOM Pandoc produces from the
+     `::: {.class}` fenced divs and `[text]{.class}` spans used in the pages.
+     ══════════════════════════════════════════════════════════════════════ */
+
+  /* Section wrapper. `.section` is a reserved Pandoc class (it becomes a
+     <section> tag and loses the class), so markdown sections use `.gr-section`. */
+  .gr-section { padding: 5rem 2rem; }
+
+  /* Inline reference/citation links in body copy should read as part of the
+     sentence, not stand out in the browser's default link color. Rules with
+     higher specificity or later in the cascade (e.g. .cite-tooltip a) still
+     override this for links that are meant to be highlighted. */
+  .gr-section a { color: inherit; text-decoration: underline; }
+
+  /* Pandoc emits headings inside components; strip their auto-anchor artefacts. */
+  .section-inner h1, .section-inner h2, .section-inner h3, .section-inner h4 { scroll-margin-top: 70px; }
+
+  /* A section heading that links to its full chapter page still reads as a
+     heading — the underline from the inline-link rule would be too heavy — and
+     picks up the accent plus a trailing arrow on hover. */
+  .gr-section h2 a { color: inherit; text-decoration: none; }
+  .gr-section h2 a::after {
+    content: '→';
+    display: inline-block;
+    margin-left: 0.4em;
+    color: var(--teal);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .gr-section h2 a:hover { color: var(--teal-mid); }
+  .gr-section h2 a:hover::after { opacity: 1; transform: translateX(0); }
+  .section-dark h2 a:hover { color: var(--teal); }
+
+  /* Muted / lead paragraphs (were inline-styled <p> in the reference). */
+  .p-lead,
+  .p-muted        { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; }
+  .p-note         { font-size: 14px; color: var(--text-muted); margin-bottom: 1rem; }
+  .p-italic       { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-style: italic; }
+  .p-muted-light  { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 1.5rem; }
+  .p-italic-light { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; font-style: italic; }
+
+  /* Spacing utilities (replace one-off inline styles). */
+  .mt-lg { margin-top: 3rem; }
+  .mb-sm { margin-bottom: 1rem; }
+  .mb-lg { margin-bottom: 3rem; }
+

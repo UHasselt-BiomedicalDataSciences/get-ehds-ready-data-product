@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+title: Get EHDS ready data product
+message: If you use this material, please cite the website as below.
+# CFF 1.2.0 allows only "software" or "dataset" here — this key describes the
+# repository. The thing to cite is the website, expressed as preferred-citation
+# with type "website" below.
+type: website
+authors:
+  - family-names: Verbiest
+    given-names: J. R.
+repository-code: https://github.com/UHasselt-BiomedicalDataSciences/get-ehds-ready-data-product
+url: https://uhasselt-biomedicaldatasciences.github.io/get-ehds-ready-data-product/
+abstract: >-
+  Website for the GET REHDY technical work package: designing a health
+  data product for secondary use under the European Health Data Space (EHDS).
+keywords:
+  - EHDS
+  - European Health Data Space
+  - data product
+  - data contract
+  - ODCS
+  - Open Data Contract Standard
+  - OMOP CDM
+  - health data
+  - secondary use
+# Documentation is CC BY 4.0, code is MIT — see LICENSE.
+license:
+  - CC-BY-4.0
+  - MIT
+license-url: https://github.com/UHasselt-BiomedicalDataSciences/get-ehds-ready-data-product/blob/main/LICENSE
+preferred-citation:
+  type: website
+  title: Get EHDS ready data product
+  authors:
+    - family-names: Verbiest
+      given-names: J. R.
+  url: https://uhasselt-biomedicaldatasciences.github.io/get-ehds-ready-data-product/
+  year: 2026
+  notes: GET REHDY technical work package. Work in progress.

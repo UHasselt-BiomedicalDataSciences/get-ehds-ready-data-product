@@ -1,0 +1,38 @@
+/* ── TOKENS AND BASE — part 2 of 9 of the GET REHDY stylesheet ──
+   Box-sizing reset, the colour and type custom properties, html and body.
+   Order matters: the browser concatenates these in the order listed under
+   `css:` in _quarto.yml, and that order is the cascade. */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1725;
+    --navy-mid: #122236;
+    --teal: #71B29C;
+    --teal-light: #E4F0EC;
+    --teal-mid: #2E6B73;
+    --blue-accent: #1B758F;
+    --orange: #C97A4A;
+    --orange-light: #F5ECE3;
+    --purple: #7A5C9E;
+    --slate: #F4F6FA;
+    --slate-mid: #E2E8F0;
+    --text-dark: #0A1725;
+    --text-body: #2D3748;
+    --text-muted: #6B7280;
+    --border: #CBD5E0;
+    --grid-color: rgba(18, 34, 54, 0.06);
+    --font: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--text-body);
+    background: #FAFBFD;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+

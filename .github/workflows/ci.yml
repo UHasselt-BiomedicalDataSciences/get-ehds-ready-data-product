@@ -1,0 +1,31 @@
+# Build, privacy and security checks.
+#
+# This runs the very same script contributors run locally — ./_scripts/ci.sh —
+# so there is one definition of "green" rather than two that drift apart.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the source
+        uses: actions/checkout@v4
+
+      # Keep this version in step with .github/workflows/publish.yml, so what
+      # CI validates is what gets published.
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.41
+
+      - name: Build, privacy and security checks
+        run: ./_scripts/ci.sh

@@ -1,6 +1,11 @@
 ---
 pagetitle: "Subpage template — GET REHDY"
 description: "Starter template for a GET REHDY subpage. Write plain markdown; the nav header and footer are added automatically."
+# lang: British English
+lang: en-GB
+author:
+  - name: J. R. Verbiest
+    affiliation: Hasselt University
 ---
 
 <!--
@@ -9,12 +14,12 @@ description: "Starter template for a GET REHDY subpage. Write plain markdown; th
   This file lives in _templates/, so Quarto does NOT render it (paths starting
   with "_" are ignored). To start a new page, copy it to the project root:
 
-      cp _templates/subpage-template.qmd about.qmd
+      cp _templates/subpage-template.qmd <name>.qmd
 
   Then `quarto render` writes docs/about.html. Everything below is ordinary
   markdown — the GET REHDY nav header (header.png) and footer (footer.png) are
   injected automatically on every page via _quarto.yml, and
-  assets/css/get-rehdy.css provides the look.
+  the stylesheet parts in assets/css/ provide the look.
 
   Wrap page content in a `.gr-section` (padding) + `.section-inner` (max-width)
   so it lines up with the rest of the site. Use fenced divs ( ::: {.class} )

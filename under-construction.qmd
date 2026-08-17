@@ -1,0 +1,30 @@
+---
+pagetitle: "Under construction — GET REHDY"
+description: "This part of the GET REHDY site is still being written. Come back soon."
+lang: en-GB
+author:
+  - name: J. R. Verbiest
+    affiliation: Hasselt University
+date: last-modified
+date-format: "D MMMM YYYY"
+include-in-header:
+  text: |
+    <meta name="robots" content="noindex, follow">
+---
+
+<!-- ========================= HERO ========================= -->
+:::::: {.hero}
+::::: {.hero-inner}
+:::: {.hero-eyebrow}
+Work in progress
+::::
+
+# This page is<br>*under construction*
+
+:::: {.hero-sub}
+The section is still being written. GET REHDY is published as it is developed.
+::::
+:::::
+::::::
+
+<!-- ===================== End ===================== -->
