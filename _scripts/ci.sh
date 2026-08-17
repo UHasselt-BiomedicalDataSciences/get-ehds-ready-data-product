@@ -48,9 +48,13 @@ else
 fi
 
 # A page on disk that nobody registered is a page that never gets built.
+# Files starting with "_" are skipped: Quarto never renders them as pages, they
+# are include partials pulled in with {{< include >}}, and listing one under
+# render: would build it as a stray standalone page.
 unlisted=""
 for f in *.qmd; do
   [ -e "$f" ] || continue
+  case "$f" in _*) continue ;; esac
   grep -qE "^    - $f\$" _quarto.yml || unlisted="$unlisted $f"
 done
 if [ -n "$unlisted" ]; then
@@ -90,7 +94,10 @@ if git ls-files | grep -qiE '\.(pdf|docx)$'; then
 else
   pass "no PDF or Word build products are tracked"
 fi
-if git check-ignore -q _book 2>/dev/null; then
+# The trailing slash matters. check-ignore stats the path, so without it git
+# treats "_book" as a file and the directory-only rule /_book/ does not match —
+# which is every CI checkout, where the ignored directory is simply absent.
+if git check-ignore -q _book/ 2>/dev/null; then
   pass "_book/ is git-ignored"
 else
   fail "_book/ is NOT git-ignored — restore the rule in .gitignore"
