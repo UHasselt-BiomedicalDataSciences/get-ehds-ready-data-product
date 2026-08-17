@@ -1,12 +1,15 @@
-# Render the Quarto site and deploy it to the gh-pages branch.
+# Render the Quarto site and deploy it straight to GitHub Pages.
 #
 # The rendered site is a build artefact and is not committed to main (see
 # .gitignore). This workflow is the only thing that publishes it, so what is
 # live is always a fresh render of what is on main.
 #
-# One-time setup in the repository: Settings → Pages → Source = "Deploy from a
-# branch", Branch = gh-pages / (root). The first successful run creates the
-# branch.
+# There is no gh-pages branch: the render is uploaded as a Pages artefact and
+# deployed by GitHub, which also means the legacy Jekyll builder never runs over
+# the output.
+#
+# One-time setup in the repository: Settings → Pages → Source = "GitHub
+# Actions".
 name: Publish site
 
 on:
@@ -15,17 +18,23 @@ on:
   # Allows publishing by hand from the Actions tab.
   workflow_dispatch:
 
-# The publish action pushes the rendered site to the gh-pages branch.
+# What actions/deploy-pages needs: read the source, mint an OIDC token to prove
+# the deployment came from this workflow, and write to Pages. Nothing writes to
+# the repository itself.
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
-# A newer push supersedes an in-flight one; never let two deploys race.
+# A newer push supersedes an in-flight one; never let two deploys race. Not
+# cancel-in-progress: an interrupted deployment can leave Pages half-updated, so
+# a running deploy is allowed to finish and the newer one queues behind it.
 concurrency:
   group: publish-site
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the source
@@ -42,9 +51,24 @@ jobs:
       # language runtime needs installing. The sync-book.sh post-render hook is
       # skipped here: it belongs to the private book toolchain and is git-ignored,
       # so it is not in this checkout, and the guard in _quarto.yml passes over it.
-      - name: Render and deploy to gh-pages
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Render the site
+        run: quarto render
+
+      # output-dir in _quarto.yml. The action adds the .nojekyll marker itself,
+      # so nothing downstream tries to run the output through Jekyll.
+      - name: Upload the render as a Pages artefact
+        uses: actions/upload-pages-artifact@v3
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Gives the run a "github-pages" deployment entry with the live URL on it.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -44,7 +44,7 @@ untracked, a resource loaded from a third party.
 ├── .gitignore                   # keeps docs/, _book/ and the manuscript out of git
 ├── .github/workflows/
 │   ├── ci.yml                   #   build, privacy and security checks
-│   └── publish.yml              #   renders and deploys to the gh-pages branch
+│   └── publish.yml              #   renders and deploys to GitHub Pages
 ├── _scripts/                    # helper scripts (not published)
 │   └── ci.sh                    #   the checks; run this before pushing
 ├── _includes/                   # HTML partials injected on every page (not published)
@@ -165,5 +165,6 @@ Open a pull request; CI runs on it. Merging to `main` publishes the site.
 
 Pushing to `main` runs [`ci.yml`](.github/workflows/ci.yml) and then
 [`publish.yml`](.github/workflows/publish.yml), which renders the site and
-deploys it to the `gh-pages` branch. The rendered site is a build artefact and
-is not committed.
+deploys it to GitHub Pages (Settings → Pages → Source = "GitHub Actions"). There
+is no `gh-pages` branch: the render is uploaded as a Pages artefact. The rendered
+site is a build artefact and is not committed.

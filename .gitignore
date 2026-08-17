@@ -15,8 +15,8 @@
 /.quarto/
 
 # The rendered site. It is a build artefact, not source: the site is rendered
-# from these pages by .github/workflows/publish.yml and deployed to the
-# gh-pages branch. Keeping it out of main is what prevents a half-published
+# from these pages by .github/workflows/publish.yml and deployed to GitHub
+# Pages as an artefact. Keeping it out of main is what prevents a half-published
 # site.
 /docs/
 /_site/
