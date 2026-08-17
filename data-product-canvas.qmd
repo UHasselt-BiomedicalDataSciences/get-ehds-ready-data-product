@@ -154,10 +154,10 @@ The **Sources (Input Ports) block** defines how raw data enters the data product
 ::::: {.card .card-orange}
 ### Block 7 — Data Product Architecture {#block-7-data-product-architecture}
 
-The **Data Product Architecture block** outlines the internal structure of the data product, describing how code, data, infrastructure, and metadata are organised. It typically captures the main components - such as the ingestion jobs, transformation pipelines, storage layers, and serving interfaces - their responsibilities, and how they interact.
+The **Data Product Architecture block** outlines the internal structure of the data product, describing how code, data, infrastructure, and metadata are organised. It typically captures the transformation pipelines, storage layers, and serving interfaces.
 
 :::: {.dp-example}
-📦 The MS data product comprises: (i) an ingestion layer that queries the data warehouse, (ii) a transformation layer, and (iii) a serving layer that exposes the standardised tables through the agreed output ports.
+📦 The MS data product comprises: (i) a transformation layer, and (ii) a serving layer that exposes the standardised tables through the agreed output ports.
 ::::
 :::::
 
