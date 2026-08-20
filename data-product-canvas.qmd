@@ -205,16 +205,26 @@ The **Classification block** specifies the nature of the exposed data and catego
 ::::::: {.section-inner}
 :::::: {.prose}
 
-## The completed canvas for 📦 example
+## The canvas for 📦 example
+
+::::: {.insight .insight-icon .insight-red}
+```{=html}
+<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+```
+**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. One of these steps during the project is to align with the requirements of the EHDS.
+:::::
 
 ::::::
 
 <!-- The completed canvas — shared partial, edit in _canvas.qmd -->
 {{< include _canvas.qmd >}}
 
+:::::: {.prose}
+
+::::::
+
 :::::::
 ::::::::
-
 
 <!-- ========================= SUMMARY ========================= -->
 :::::::: {.gr-section .section-dark .grid-bg #summary}
@@ -224,8 +234,6 @@ The **Classification block** specifies the nature of the exposed data and catego
 ## Summary
 
 Step 1 — design, introduced the **Data Product Canvas** as a structured, collaborative starting point for designing a data product *before* any implementation begins. Rather than discovering a data product in the data, the canvas helps cross-functional teams — users, data and analytics experts, and IT professionals — deliberately specify it on a single page, establishing a shared language and aligning everyone around a common vision. In doing so, it promotes a **data-product mindset** that prioritises value to end users and ensures each product is **valuable**, **usable**, and **feasible**.
-
-The data product canvas is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps.
 
 ::::::
 :::::::

@@ -375,6 +375,13 @@
   }
   .insight strong { color: var(--teal-mid); }
 
+  /* An .insight box flagged as a caution/remark rather than a rationale. */
+  .insight-red {
+    background: var(--red-light);
+    border-color: rgba(193, 92, 92, 0.3);
+  }
+  .insight-red strong { color: var(--red); }
+
   /* ── QUOTE ── */
   .big-quote {
     text-align: center;

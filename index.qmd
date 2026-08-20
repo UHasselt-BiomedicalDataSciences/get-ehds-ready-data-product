@@ -246,6 +246,13 @@ The canvas below shows the completed blueprint for the use case example.
 The canvas promotes a shift toward a **data-product mindset** by ensuring that each data product is **valuable** (creates research or economic value), **usable** (solves a genuine problem for the consumer) [@dehghani2022datamesh].
 ::::
 
+::::: {.insight .insight-icon .insight-red}
+```{=html}
+<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+```
+**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. One of these steps during the project is to align with the requirements of the EHDS.
+:::::
+
 :::: {.btn-row}
 ```{=html}
 <a class="btn btn-primary" href="data-product-canvas.html">Data Product Canvas <span aria-hidden="true">→</span></a>
@@ -379,6 +386,14 @@ Rich, machine-readable metadata fuels self-service discovery for both human and 
 
 ::::::
 
+<!--
+:::: {.btn-row}
+```{=html}
+<a class="btn btn-primary" href="data-product-design.html">Data product design<span aria-hidden="true">→</span></a>
+```
+::::
+-->
+
 :::::::
 ::::::::
 
@@ -471,7 +486,7 @@ The SwitchBox [@parciak2026] is a pilot ETL (Extract, Transform, Load) tool that
 <a class="btn btn-primary" href="omop-cdm-switchbox.html">OMOP CDM &amp; SwitchBox<span aria-hidden="true">→</span></a>
 ```
 ::::
- -->
+-->
 
 :::::::
 ::::::::

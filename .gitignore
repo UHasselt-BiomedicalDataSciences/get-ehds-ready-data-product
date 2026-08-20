@@ -70,4 +70,4 @@ Desktop.ini
 # so unfinished drafts are not pushed; the live site links to
 # under-construction.qmd in their place. Note that a path starting with "_" is
 # also ignored by Quarto, so nothing here is ever rendered.
-_pages_under_construction/
+/_draft/

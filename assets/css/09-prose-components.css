@@ -367,6 +367,7 @@
     align-items: start;
   }
   .dp-warning.panel-icon > svg { stroke: var(--orange); }
+  .insight-red.insight-icon > svg { stroke: var(--red); }
   .insight-icon > svg,
   .panel-icon > svg {
     grid-column: 1;
