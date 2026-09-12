@@ -51,7 +51,7 @@ The canvas strengthens the business case for investment by clearly outlining the
 
 In this step, we use the Data Product Canvas from the [Data Mesh Architecture](https://www.datamesh-architecture.com/data-product-canvas). Below an illustration with an example. 
 
-📦 = Data Product.
+📦 = Data Product. We use `dp_ms_core_data` as an example.
 ::::::
 :::::::
 ::::::::
@@ -100,7 +100,7 @@ The **Data Product Name block** provides a unique, human-readable identifier for
 
 :::: {.dp-example}
 📦 **Name**: `MS Data Product` <br>
-📦 **Identifier**: `dp_msda_core_data`
+📦 **Identifier**: `dp_ms_core_data`
 ::::
 :::::
 
@@ -211,7 +211,7 @@ The **Classification block** specifies the nature of the exposed data and catego
 ```{=html}
 <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
 ```
-**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. One of these steps during the project is to align with the requirements of the EHDS.
+**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. During the project we align this blueprint with the requirements of the EHDS.
 :::::
 
 ::::::

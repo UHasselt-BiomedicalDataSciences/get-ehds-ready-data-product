@@ -7,7 +7,7 @@
 ::: {.canvas-block-label}
 :::
 #### MS Data Product
-[Identifier: [dp_msda_core_data]{.mono .accent-teal}]{.canvas-accent-id}
+[Identifier: [dp_ms_core_data]{.mono .accent-teal}]{.canvas-accent-id}
 ::::
 
 :::: {.canvas-block}
