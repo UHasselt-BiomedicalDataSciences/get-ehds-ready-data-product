@@ -235,10 +235,6 @@ Step 1 — Design
 A data product is not discovered in the data; it is intentionally designed. The Data Product Canvas [@datameshcanvas] is a structured tool that defines all essential decisions on a single page, before a single line of code is written. It ensures that users, domain experts, and engineers share a common vision.
 ::::
 
-:::: {.p-note}
-The canvas below shows the completed blueprint for the use case example.
-::::
-
 <!-- The completed canvas — shared partial, edit in _canvas.qmd -->
 {{< include _canvas.qmd >}}
 
@@ -250,14 +246,17 @@ The canvas promotes a shift toward a **data-product mindset** by ensuring that e
 ```{=html}
 <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
 ```
-**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. During the project we align this blueprint with the requirements of the EHDS.
+**Remark** — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas provides a foundation for the implementation work in the subsequent steps. During the project we align the data product canvas with the requirements of the EHDS.
 :::::
 
+<!--
 :::: {.btn-row}
 ```{=html}
 <a class="btn btn-primary" href="data-product-canvas.html">Data Product Canvas <span aria-hidden="true">→</span></a>
 ```
 ::::
+-->
+
 :::::::
 ::::::::
 
@@ -269,10 +268,6 @@ Step 2 — Build
 ::::
 
 ## Data Product design
-
-:::: {.section-intro}
-With the canvas complete, the blueprint becomes a working design document.
-::::
 
 :::::: {.flow}
 ::::: {.flow-step}
@@ -508,7 +503,7 @@ Putting it together
 01 / Design
 ::::
 ### [Data Product Canvas](data-product-canvas.html)
-Data Product Canvas establishes purpose, ownership, consumers, and governance before engineering begins; it aligns all stakeholders on a shared blueprint.
+Data Product Canvas establishes purpose, ownership, consumers, and governance before engineering begins; it aligns all stakeholders.
 :::::
 
 ::::: {.card .card-teal .is-linked}
@@ -516,7 +511,7 @@ Data Product Canvas establishes purpose, ownership, consumers, and governance be
 02 / Build
 ::::
 ### Data product design
-The Data Product Canvas implements the data product blueprint. The Data Product Design step delivered a data product with a contracted, versioned output port.
+The Data Product Design step delivered a data product with a contracted, versioned output port.
 :::::
 
 ::::: {.card .card-orange .is-linked}

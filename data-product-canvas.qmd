@@ -47,7 +47,7 @@ The data product canvas promotes a shift toward a **data-product mindset** by en
 
 The data product canvas is designed for iterative use, enabling teams to refine their designs as new insights emerge. It also facilitates portfolio-level decision-making for managing multiple data product initiatives. By clarifying ownership and interfaces, and aligning with broader organisational goals such as data sharing and interoperability, the canvas promotes scalability and reuse.
 
-The canvas strengthens the business case for investment by clearly outlining the value propositions, costs, and expected benefits. Completing the canvas upfront helps clarify ownership, quality expectations, and access terms. The canvas provides a solid conceptual blueprint for implementing the data product.
+The canvas strengthens the business case for investment by clearly outlining the value propositions, costs, and expected benefits. Completing the canvas upfront helps clarify ownership, quality expectations, and access terms.
 
 In this step, we use the Data Product Canvas from the [Data Mesh Architecture](https://www.datamesh-architecture.com/data-product-canvas). Below an illustration with an example. 
 
@@ -211,7 +211,7 @@ The **Classification block** specifies the nature of the exposed data and catego
 ```{=html}
 <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
 ```
-**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas can be seen as a data product blueprint, providing a foundation for the implementation work in the subsequent steps. During the project we align this blueprint with the requirements of the EHDS.
+**Remark**<br> — The canvas is a living document. It is used iteratively and will be refined as new insights emerge. The canvas provides a foundation for the implementation work in the subsequent steps. During the project we align the data product canvas with the requirements of the EHDS.
 :::::
 
 ::::::
